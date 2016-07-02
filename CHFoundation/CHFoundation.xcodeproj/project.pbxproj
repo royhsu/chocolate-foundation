@@ -11,7 +11,20 @@
 		B0971D4F1D281148005BBEE8 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D4C1D281148005BBEE8 /* Directory.swift */; };
 		B0971D501D281148005BBEE8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D4D1D281148005BBEE8 /* String+Extensions.swift */; };
 		B0971D511D281148005BBEE8 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D4E1D281148005BBEE8 /* URL+Extensions.swift */; };
+		B0971D5B1D281211005BBEE8 /* CHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0971D401D28112D005BBEE8 /* CHFoundation.framework */; };
+		B0971D651D281251005BBEE8 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D631D281251005BBEE8 /* StringTests.swift */; };
+		B0971D661D281251005BBEE8 /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D641D281251005BBEE8 /* URLTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0971D5C1D281211005BBEE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0971D371D28112D005BBEE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0971D3F1D28112D005BBEE8;
+			remoteInfo = CHFoundation;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B0971D401D28112D005BBEE8 /* CHFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,6 +33,10 @@
 		B0971D4C1D281148005BBEE8 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		B0971D4D1D281148005BBEE8 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B0971D4E1D281148005BBEE8 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		B0971D561D281211005BBEE8 /* CHFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0971D5A1D281211005BBEE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0971D631D281251005BBEE8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		B0971D641D281251005BBEE8 /* URLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +44,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0971D531D281211005BBEE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0971D5B1D281211005BBEE8 /* CHFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +63,7 @@
 			children = (
 				B0971D4B1D281148005BBEE8 /* Source */,
 				B0971D421D28112D005BBEE8 /* CHFoundation */,
+				B0971D571D281211005BBEE8 /* CHFoundationTests */,
 				B0971D411D28112D005BBEE8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				B0971D401D28112D005BBEE8 /* CHFoundation.framework */,
+				B0971D561D281211005BBEE8 /* CHFoundationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +95,16 @@
 			);
 			name = Source;
 			path = ../Source;
+			sourceTree = "<group>";
+		};
+		B0971D571D281211005BBEE8 /* CHFoundationTests */ = {
+			isa = PBXGroup;
+			children = (
+				B0971D631D281251005BBEE8 /* StringTests.swift */,
+				B0971D641D281251005BBEE8 /* URLTests.swift */,
+				B0971D5A1D281211005BBEE8 /* Info.plist */,
+			);
+			path = CHFoundationTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,12 +139,31 @@
 			productReference = B0971D401D28112D005BBEE8 /* CHFoundation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		B0971D551D281211005BBEE8 /* CHFoundationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0971D5E1D281211005BBEE8 /* Build configuration list for PBXNativeTarget "CHFoundationTests" */;
+			buildPhases = (
+				B0971D521D281211005BBEE8 /* Sources */,
+				B0971D531D281211005BBEE8 /* Frameworks */,
+				B0971D541D281211005BBEE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0971D5D1D281211005BBEE8 /* PBXTargetDependency */,
+			);
+			name = CHFoundationTests;
+			productName = CHFoundationTests;
+			productReference = B0971D561D281211005BBEE8 /* CHFoundationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B0971D371D28112D005BBEE8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Tiny World";
 				TargetAttributes = {
@@ -115,6 +171,13 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 5CE6946X84;
 						DevelopmentTeamName = "Yu Chi Hsu";
+						ProvisioningStyle = Automatic;
+					};
+					B0971D551D281211005BBEE8 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 5CE6946X84;
+						DevelopmentTeamName = "Yu Chi Hsu";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -132,12 +195,20 @@
 			projectRoot = "";
 			targets = (
 				B0971D3F1D28112D005BBEE8 /* CHFoundation */,
+				B0971D551D281211005BBEE8 /* CHFoundationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B0971D3E1D28112D005BBEE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0971D541D281211005BBEE8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -157,7 +228,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0971D521D281211005BBEE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0971D651D281251005BBEE8 /* StringTests.swift in Sources */,
+				B0971D661D281251005BBEE8 /* URLTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0971D5D1D281211005BBEE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0971D3F1D28112D005BBEE8 /* CHFoundation */;
+			targetProxy = B0971D5C1D281211005BBEE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B0971D461D28112D005BBEE8 /* Debug */ = {
@@ -289,6 +377,31 @@
 			};
 			name = Release;
 		};
+		B0971D5F1D281211005BBEE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = CHFoundationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.CHFoundationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B0971D601D281211005BBEE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = CHFoundationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.CHFoundationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -306,6 +419,14 @@
 			buildConfigurations = (
 				B0971D491D28112D005BBEE8 /* Debug */,
 				B0971D4A1D28112D005BBEE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B0971D5E1D281211005BBEE8 /* Build configuration list for PBXNativeTarget "CHFoundationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0971D5F1D281211005BBEE8 /* Debug */,
+				B0971D601D281211005BBEE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
