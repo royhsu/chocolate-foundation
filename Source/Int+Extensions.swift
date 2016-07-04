@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Int {
+public extension Int {
     
     /**
      A convenience method that randomly generate a int number with the given range.

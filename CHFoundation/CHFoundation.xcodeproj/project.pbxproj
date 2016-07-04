@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B0956B061D2A0F14000BC8D0 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */; };
+		B0956B111D2A3911000BC8D0 /* IntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B101D2A3911000BC8D0 /* IntTests.swift */; };
 		B0971D441D28112D005BBEE8 /* CHFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B0971D431D28112D005BBEE8 /* CHFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0971D4F1D281148005BBEE8 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D4C1D281148005BBEE8 /* Directory.swift */; };
 		B0971D501D281148005BBEE8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D4D1D281148005BBEE8 /* String+Extensions.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		B0956B101D2A3911000BC8D0 /* IntTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntTests.swift; sourceTree = "<group>"; };
 		B0971D401D28112D005BBEE8 /* CHFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0971D431D28112D005BBEE8 /* CHFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFoundation.h; sourceTree = "<group>"; };
 		B0971D451D28112D005BBEE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				B0971D631D281251005BBEE8 /* StringTests.swift */,
 				B0971D641D281251005BBEE8 /* URLTests.swift */,
+				B0956B101D2A3911000BC8D0 /* IntTests.swift */,
 				B0971D5A1D281211005BBEE8 /* Info.plist */,
 			);
 			path = CHFoundationTests;
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0956B111D2A3911000BC8D0 /* IntTests.swift in Sources */,
 				B0971D651D281251005BBEE8 /* StringTests.swift in Sources */,
 				B0971D661D281251005BBEE8 /* URLTests.swift in Sources */,
 			);
