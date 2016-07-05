@@ -35,7 +35,7 @@ class WebServiceTest: XCTestCase {
     
     func testSuccessfulResponse() {
         
-        class mockURLSession: URLSession {
+        class MockURLSession: URLSession {
             
             override func dataTask(with url: URL, completionHandler: (Data?, URLResponse?, NSError?) -> Void) -> URLSessionDataTask {
                 
@@ -61,8 +61,10 @@ class WebServiceTest: XCTestCase {
             
         }
         
+        let expectation = self.expectation(withDescription: "Request data with web service.")
+        
         webService!.request(
-            with: URLSession(configuration: .default()),
+            with: MockURLSession(),
             successHandler: { json in
                 
                 let jsonObject = json as? [NSObject: AnyObject]
@@ -73,13 +75,19 @@ class WebServiceTest: XCTestCase {
                 
                 XCTAssertEqual(bobName, "Bob", "The result doesn't match.")
                 
+                expectation.fulfill()
+                
             },
             failHandler: { error in
             
                 XCTAssertNil(error, "Should not catch an error.")
                 
+                expectation.fulfill()
+                
             }
         )
+        
+        waitForExpectations(withTimeout: 3.0, handler: nil)
         
     }
     

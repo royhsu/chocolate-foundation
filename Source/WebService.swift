@@ -27,7 +27,7 @@ public struct WebService {
     
     // MARK: Request
     
-    public func request(with urlSession: URLSession, successHandler: SuccessHandler, failHandler: FailHandler?) {
+    public func request(with urlSession: URLSession, successHandler: SuccessHandler, failHandler: FailHandler?) -> URLSessionTask {
         
         let sessionTask = urlSession.dataTask(with: urlRequest) { data, response, error in
                 
@@ -70,6 +70,8 @@ public struct WebService {
         }
         
         sessionTask.resume()
+        
+        return sessionTask
         
     }
     
