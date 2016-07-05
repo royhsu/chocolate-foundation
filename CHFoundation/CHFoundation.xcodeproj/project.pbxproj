@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466071D2B4ECF004CB0E9 /* WebService.swift */; };
 		B044660A1D2B4EEA004CB0E9 /* WebServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466091D2B4EEA004CB0E9 /* WebServiceTest.swift */; };
+		B04466101D2B9F3D004CB0E9 /* WebResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044660F1D2B9F3D004CB0E9 /* WebResource.swift */; };
 		B0956B061D2A0F14000BC8D0 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */; };
 		B0956B111D2A3911000BC8D0 /* IntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B101D2A3911000BC8D0 /* IntTests.swift */; };
 		B0971D441D28112D005BBEE8 /* CHFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B0971D431D28112D005BBEE8 /* CHFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		B04466071D2B4ECF004CB0E9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		B04466091D2B4EEA004CB0E9 /* WebServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTest.swift; sourceTree = "<group>"; };
+		B044660F1D2B9F3D004CB0E9 /* WebResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebResource.swift; sourceTree = "<group>"; };
 		B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		B0956B101D2A3911000BC8D0 /* IntTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntTests.swift; sourceTree = "<group>"; };
 		B0971D401D28112D005BBEE8 /* CHFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 				B0971D4E1D281148005BBEE8 /* URL+Extensions.swift */,
 				B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */,
 				B04466071D2B4ECF004CB0E9 /* WebService.swift */,
+				B044660F1D2B9F3D004CB0E9 /* WebResource.swift */,
 			);
 			name = Source;
 			path = ../Source;
@@ -239,6 +242,7 @@
 				B0971D511D281148005BBEE8 /* URL+Extensions.swift in Sources */,
 				B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */,
 				B0971D4F1D281148005BBEE8 /* Directory.swift in Sources */,
+				B04466101D2B9F3D004CB0E9 /* WebResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

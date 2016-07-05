@@ -8,35 +8,36 @@
 
 import Foundation
 
-public struct WebService {
-    
-    public enum WebServiceError: ErrorProtocol {
-        case invalidResponse
-        case message(String)
-        case data(Data?)
-    }
+public enum WebServiceError: ErrorProtocol {
+    case invalidResponse
+    case message(String)
+    case data(Data?)
+    case modelParsing
+}
+
+public struct WebService<Model> {
     
     public typealias ErrorParser = (data: Data?, urlResponse: URLResponse?, error: NSError?) -> ErrorProtocol
-    public typealias SuccessHandler = (jsonObject: AnyObject) -> Void
-    public typealias FailHandler = (statusCode: Int, error: ErrorProtocol) -> Void
+    public typealias SuccessHandler = (model: Model) -> Void
+    public typealias FailHandler = (statusCode: Int?, error: ErrorProtocol) -> Void
     
     
-    // Property
-    
-    public let urlRequest: URLRequest
+    // MARK: Property
+
+    public let webResource: WebResource<Model>
     
     
     // MARK: Request
     
     public func request(with urlSession: URLSession, errorParser: ErrorParser? = nil, successHandler: SuccessHandler, failHandler: FailHandler? = nil) -> URLSessionTask {
         
-        let sessionTask = urlSession.dataTask(with: urlRequest) { data, response, error in
+        let sessionTask = urlSession.dataTask(with: webResource.urlRequest) { data, response, error in
             
             guard let response = response as? HTTPURLResponse else {
                 
                 assert(false, "The response should be a HTTPURLResponse.")
                 
-                failHandler?(statusCode: 500, error: WebServiceError.invalidResponse)
+                failHandler?(statusCode: nil, error: WebServiceError.invalidResponse)
                 
                 return
                 
@@ -44,9 +45,9 @@ public struct WebService {
             
             let statusCode = response.statusCode
             
-            if let parsedError = errorParser?(data: data, urlResponse: response, error: error) {
+            if let errorParsingError = errorParser?(data: data, urlResponse: response, error: error) {
                 
-                failHandler?(statusCode: statusCode, error: parsedError)
+                failHandler?(statusCode: statusCode, error: errorParsingError)
                 
                 return
                 
@@ -77,7 +78,17 @@ public struct WebService {
                 let data = data ?? Data()
                 let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
                 
-                successHandler(jsonObject: jsonObject)
+                guard let model = self.webResource.parse(json: jsonObject) else {
+                    
+                    let error: WebServiceError = .modelParsing
+                    
+                    failHandler?(statusCode: nil, error: error)
+                    
+                    return
+                    
+                }
+                
+                successHandler(model: model)
                 
             }
             catch { failHandler?(statusCode: statusCode, error: error) }
