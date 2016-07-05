@@ -16,7 +16,8 @@ class WebServiceTest: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        webService = WebService(urlRequest: URLRequest(url: URL(string: "")!))
+        let url = URL(string: "https://example.com")!
+        webService = WebService(urlRequest: URLRequest(url: url))
         
     }
     
@@ -25,12 +26,6 @@ class WebServiceTest: XCTestCase {
         webService = nil
         
         super.tearDown()
-    }
-    
-    func testInitWithURLRequest() {
-        
-        XCTAssertNotNil(webService, "Cannot initialize web service with url request.")
-        
     }
     
     func testSuccessfulResponse() {
@@ -81,6 +76,35 @@ class WebServiceTest: XCTestCase {
             failHandler: { error in
             
                 XCTAssertNil(error, "Should not catch an error.")
+                
+                expectation.fulfill()
+                
+            }
+        )
+        
+        waitForExpectations(withTimeout: 3.0, handler: nil)
+        
+    }
+    
+    func testWithAPI() {
+        
+        let expectation = self.expectation(withDescription: "Request data with web service.")
+        
+        let url = URL(string: "http://localhost:3000/users")!
+        webService = WebService(urlRequest: URLRequest(url: url))
+        
+        let _ = webService!.request(
+            with: URLSession(configuration: .default()),
+            successHandler: { json in
+                
+                print(json)
+                
+                expectation.fulfill()
+                
+            },
+            failHandler: { _, error in
+                
+                print(error)
                 
                 expectation.fulfill()
                 
