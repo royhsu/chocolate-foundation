@@ -11,19 +11,19 @@ import Foundation
 public struct WebService {
     
     public enum WebServiceError: ErrorProtocol {
-        case InvalidResponse
-        case NoResponseData
-        case Server(statusCode: Int, message: String)
+        case invalidResponse
+        case message(String)
+        case data(Data?)
     }
+    
+    public typealias ErrorParser = (data: Data?, urlResponse: URLResponse?, error: NSError?) -> ErrorProtocol
+    public typealias SuccessHandler = (jsonObject: AnyObject) -> Void
+    public typealias FailHandler = (statusCode: Int, error: ErrorProtocol) -> Void
     
     
     // Property
     
     public let urlRequest: URLRequest
-    
-    public typealias ErrorParser = (data: Data?, urlResponse: URLResponse?, error: NSError?) -> ErrorProtocol
-    public typealias SuccessHandler = (jsonObject: AnyObject) -> Void
-    public typealias FailHandler = (error: ErrorProtocol) -> Void
     
     
     // MARK: Request
@@ -32,17 +32,21 @@ public struct WebService {
         
         let sessionTask = urlSession.dataTask(with: urlRequest) { data, response, error in
             
-            if let parsedError = errorParser?(data: data, urlResponse: response, error: error) {
+            guard let response = response as? HTTPURLResponse else {
                 
-                failHandler?(error: parsedError)
+                assert(false, "The response should be a HTTPURLResponse.")
+                
+                failHandler?(statusCode: 500, error: WebServiceError.invalidResponse)
                 
                 return
                 
             }
+            
+            let statusCode = response.statusCode
+            
+            if let parsedError = errorParser?(data: data, urlResponse: response, error: error) {
                 
-            guard let response = response as? HTTPURLResponse else {
-                
-                failHandler?(error: WebServiceError.InvalidResponse)
+                failHandler?(statusCode: statusCode, error: parsedError)
                 
                 return
                 
@@ -50,18 +54,19 @@ public struct WebService {
             
             if let error = error {
                 
-                let message = error.localizedDescription
-                let serverError: WebServiceError = .Server(statusCode: response.statusCode, message: message)
+                let serverError: WebServiceError = .message(error.localizedDescription)
                 
-                failHandler?(error: serverError)
+                failHandler?(statusCode: statusCode, error: serverError)
                 
                 return
             
             }
             
-            guard let data = data else {
+            if !self.validate(withStatusCode: statusCode) {
+             
+                let serverError: WebServiceError = .message(NSLocalizedString("Unaccepted status code.", comment: ""))
                 
-                failHandler?(error: WebServiceError.NoResponseData)
+                failHandler?(statusCode: statusCode, error: serverError)
                 
                 return
                 
@@ -69,18 +74,31 @@ public struct WebService {
             
             do {
                 
+                let data = data ?? Data()
                 let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
                 
                 successHandler(jsonObject: jsonObject)
                 
             }
-            catch { failHandler?(error: error) }
+            catch { failHandler?(statusCode: statusCode, error: error) }
         
         }
         
         sessionTask.resume()
         
         return sessionTask
+        
+    }
+    
+    
+    // MARK: Validate
+    
+    private func validate(withStatusCode statusCode: Int) -> Bool {
+        
+        switch statusCode {
+        case 200..<300: return true
+        default: return false
+        }
         
     }
     
