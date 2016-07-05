@@ -12,7 +12,14 @@ public struct WebResource<Model> {
     
     // MARK: Property
     
-    let urlRequest: URLRequest
-    let parse: (json: AnyObject) -> Model?
+    public let urlRequest: URLRequest
+    public let parse: (json: AnyObject) -> Model?
+    
+    public init(urlRequest: URLRequest, parse: (json: AnyObject) -> Model?) {
+        
+        self.urlRequest = urlRequest
+        self.parse = parse
+        
+    }
     
 }

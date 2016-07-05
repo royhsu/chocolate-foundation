@@ -27,6 +27,11 @@ public struct WebService<Model> {
     public let webResource: WebResource<Model>
     
     
+    // MARK: Init
+    
+    public init(webResource: WebResource<Model>) { self.webResource = webResource }
+    
+    
     // MARK: Request
     
     public func request(with urlSession: URLSession, errorParser: ErrorParser? = nil, successHandler: SuccessHandler, failHandler: FailHandler? = nil) -> URLSessionTask {
