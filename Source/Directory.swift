@@ -44,7 +44,7 @@ public extension Directory {
         switch self {
         case .document(let mask):
             
-            let documentDirectoryURLs = FileManager.default().urlsForDirectory(
+            let documentDirectoryURLs = FileManager.default.urlsForDirectory(
                 self.searchPath,
                 inDomains: mask
             )
