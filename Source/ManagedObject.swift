@@ -10,12 +10,37 @@ import CoreData
 
 public class ManagedObject: NSManagedObject {
     
-    public class func entity(forEntityName entityName: String, from json: [NSObject: AnyObject], in model: NSManagedObjectModel) -> NSEntityDescription {
+    public enum ValueType {
+        case string
+    }
+    
+    public typealias Schema = [String: ValueType]
+    
+    
+    // MARK: Init
+    
+    public class func entity(forEntityName entityName: String, from schema: Schema, in model: NSManagedObjectModel) -> NSEntityDescription {
         
         let entity = NSEntityDescription()
         
         entity.name = entityName
         entity.managedObjectClassName = entityName
+        
+        for (key, valueType) in schema {
+            
+            switch valueType {
+            case .string:
+                
+                let property = NSAttributeDescription()
+                property.name = key
+                property.attributeType = .stringAttributeType
+                property.isOptional = true
+                
+                entity.properties.append(property)
+            
+            }
+            
+        }
         
         model.entities.append(entity)
         

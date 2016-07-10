@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B01B3DBB1D3231C9007C1212 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DBA1D3231C9007C1212 /* CoreDataTests.swift */; };
+		B01B3DBB1D3231C9007C1212 /* ManagedObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DBA1D3231C9007C1212 /* ManagedObjectTests.swift */; };
 		B01B3DBD1D3232BB007C1212 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DBC1D3232BB007C1212 /* ManagedObject.swift */; };
 		B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466071D2B4ECF004CB0E9 /* WebService.swift */; };
 		B044660A1D2B4EEA004CB0E9 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */; };
@@ -34,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B01B3DBA1D3231C9007C1212 /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
+		B01B3DBA1D3231C9007C1212 /* ManagedObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectTests.swift; sourceTree = "<group>"; };
 		B01B3DBC1D3232BB007C1212 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
 		B04466071D2B4ECF004CB0E9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				B0971D641D281251005BBEE8 /* URLTests.swift */,
 				B0956B101D2A3911000BC8D0 /* IntTests.swift */,
 				B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */,
-				B01B3DBA1D3231C9007C1212 /* CoreDataTests.swift */,
+				B01B3DBA1D3231C9007C1212 /* ManagedObjectTests.swift */,
 				B0971D5A1D281211005BBEE8 /* Info.plist */,
 			);
 			path = CHFoundationTests;
@@ -261,7 +261,7 @@
 				B0971D651D281251005BBEE8 /* StringTests.swift in Sources */,
 				B044660A1D2B4EEA004CB0E9 /* WebServiceTests.swift in Sources */,
 				B0971D661D281251005BBEE8 /* URLTests.swift in Sources */,
-				B01B3DBB1D3231C9007C1212 /* CoreDataTests.swift in Sources */,
+				B01B3DBB1D3231C9007C1212 /* ManagedObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
