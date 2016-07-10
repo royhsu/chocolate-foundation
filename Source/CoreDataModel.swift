@@ -8,43 +8,40 @@
 
 import CoreData
 
-public class ManagedObject: NSManagedObject {
-    
-    public enum ValueType {
-        case string
-    }
-    
-    public typealias Schema = [String: ValueType]
+public final class CoreDataModel: NSManagedObjectModel {
     
     
-    // MARK: Init
+    // MARK: Schema
     
-    public class func entity(forEntityName entityName: String, from schema: Schema, in model: NSManagedObjectModel) -> NSEntityDescription {
+    public func add(schema: CoreDataSchema) {
         
+        let schemaType = schema.dynamicType
+        
+        if contains(schemaType: schemaType) { return }
+        
+        let entityName = schemaType.identifier
         let entity = NSEntityDescription()
-        
+
         entity.name = entityName
         entity.managedObjectClassName = entityName
-        
-        for (key, valueType) in schema {
-            
+
+        for (key, valueType) in schema.template {
+
             switch valueType {
             case .string:
-                
+
                 let property = NSAttributeDescription()
                 property.name = key
                 property.attributeType = .stringAttributeType
                 property.isOptional = true
-                
+
                 entity.properties.append(property)
             
             }
             
         }
         
-        model.entities.append(entity)
-        
-        return entity
+        entities.append(entity)
         
     }
     
