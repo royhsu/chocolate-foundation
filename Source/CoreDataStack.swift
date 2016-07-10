@@ -8,13 +8,18 @@
 
 import CoreData
 
-struct CoreDataStack {
+public struct CoreDataStack {
     
     let context: NSManagedObjectContext
     let storeCoordinator: NSPersistentStoreCoordinator
-    let storeURL: NSURL
+    let storeURL: NSURL?
     
-    init(name: String, model: NSManagedObjectModel, context: NSManagedObjectContext, options: [NSObject: AnyObject]? = nil, at directory: Directory) throws {
+    public enum StoreType {
+        case directory(Directory)
+        case memory
+    }
+    
+    init(name: String, model: NSManagedObjectModel, context: NSManagedObjectContext, options: [NSObject: AnyObject]? = nil, storeType: StoreType) throws {
         
         let storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         
@@ -22,16 +27,28 @@ struct CoreDataStack {
         
         do {
             
-            let storeURL = try directory.url
-                .appendingPathComponent(name)
-                .appendingPathExtension("sqlite")
+            switch storeType {
+            case .directory(let directory):
+                
+                let storeURL = try directory.url
+                    .appendingPathComponent(name)
+                    .appendingPathExtension("sqlite")
+                
+                try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
+                
+                self.context = context
+                self.storeCoordinator = storeCoordinator
+                self.storeURL = storeURL
+                
+            case .memory:
+                
+                try storeCoordinator.addPersistentStore(ofType: NSInMemoryStoreType, configurationName: nil, at: nil, options: options)
+                
+                self.context = context
+                self.storeCoordinator = storeCoordinator
+                self.storeURL = nil
+            }
             
-            try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
-            
-            self.context = context
-            self.storeCoordinator = storeCoordinator
-            self.storeURL = storeURL
-        
         }
         catch { throw error }
         

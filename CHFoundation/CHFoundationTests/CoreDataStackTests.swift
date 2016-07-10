@@ -12,17 +12,35 @@ import XCTest
 
 class CoreDataStackTests: XCTestCase {
     
-    func testInit() {
+    func testInitInDirectoy() {
         
         let stack = try? CoreDataStack(
             name: "Test",
             model: NSManagedObjectModel(),
             context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType),
             options: nil,
-            at: .document(mask: .userDomainMask)
+            storeType: .directory(.document(mask: .userDomainMask))
         )
         
         XCTAssertNotNil(stack, "Cannot initialize stack.")
+        
+        XCTAssertNotNil(stack!.storeURL, "Should have store url.")
+        
+    }
+    
+    func testInitInMemory() {
+        
+        let stack = try? CoreDataStack(
+            name: "Test",
+            model: NSManagedObjectModel(),
+            context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType),
+            options: nil,
+            storeType: .memory
+        )
+        
+        XCTAssertNotNil(stack, "Cannot initialize stack.")
+        
+        XCTAssertNil(stack!.storeURL, "Should not have store url.")
         
     }
     
