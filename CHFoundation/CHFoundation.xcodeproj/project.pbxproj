@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B01B3DBB1D3231C9007C1212 /* ManagedObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DBA1D3231C9007C1212 /* ManagedObjectTests.swift */; };
 		B01B3DBD1D3232BB007C1212 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DBC1D3232BB007C1212 /* ManagedObject.swift */; };
+		B01B3DBF1D3240DB007C1212 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DBE1D3240DB007C1212 /* CoreDataStack.swift */; };
 		B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466071D2B4ECF004CB0E9 /* WebService.swift */; };
 		B044660A1D2B4EEA004CB0E9 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */; };
 		B04466101D2B9F3D004CB0E9 /* WebResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044660F1D2B9F3D004CB0E9 /* WebResource.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		B01B3DBA1D3231C9007C1212 /* ManagedObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectTests.swift; sourceTree = "<group>"; };
 		B01B3DBC1D3232BB007C1212 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
+		B01B3DBE1D3240DB007C1212 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B04466071D2B4ECF004CB0E9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
 		B044660F1D2B9F3D004CB0E9 /* WebResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebResource.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				B04466071D2B4ECF004CB0E9 /* WebService.swift */,
 				B044660F1D2B9F3D004CB0E9 /* WebResource.swift */,
 				B01B3DBC1D3232BB007C1212 /* ManagedObject.swift */,
+				B01B3DBE1D3240DB007C1212 /* CoreDataStack.swift */,
 			);
 			name = Source;
 			path = ../Source;
@@ -250,6 +253,7 @@
 				B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */,
 				B0971D4F1D281148005BBEE8 /* Directory.swift in Sources */,
 				B04466101D2B9F3D004CB0E9 /* WebResource.swift in Sources */,
+				B01B3DBF1D3240DB007C1212 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
