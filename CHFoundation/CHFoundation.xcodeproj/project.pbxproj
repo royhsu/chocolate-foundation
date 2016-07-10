@@ -13,6 +13,8 @@
 		B01B3DC11D32435A007C1212 /* CoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DC01D32435A007C1212 /* CoreDataStackTests.swift */; };
 		B01B3DC31D324D6C007C1212 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DC21D324D6C007C1212 /* Identifiable.swift */; };
 		B01B3DC51D325397007C1212 /* CoreDataSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DC41D325397007C1212 /* CoreDataSchema.swift */; };
+		B01B3DC71D3274F0007C1212 /* CoreDataSchemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DC61D3274F0007C1212 /* CoreDataSchemaTests.swift */; };
+		B01B3DC91D327560007C1212 /* TestCoreDataSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DC81D327560007C1212 /* TestCoreDataSchema.swift */; };
 		B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466071D2B4ECF004CB0E9 /* WebService.swift */; };
 		B044660A1D2B4EEA004CB0E9 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */; };
 		B04466101D2B9F3D004CB0E9 /* WebResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044660F1D2B9F3D004CB0E9 /* WebResource.swift */; };
@@ -44,6 +46,8 @@
 		B01B3DC01D32435A007C1212 /* CoreDataStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackTests.swift; sourceTree = "<group>"; };
 		B01B3DC21D324D6C007C1212 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		B01B3DC41D325397007C1212 /* CoreDataSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSchema.swift; sourceTree = "<group>"; };
+		B01B3DC61D3274F0007C1212 /* CoreDataSchemaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSchemaTests.swift; sourceTree = "<group>"; };
+		B01B3DC81D327560007C1212 /* TestCoreDataSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCoreDataSchema.swift; sourceTree = "<group>"; };
 		B04466071D2B4ECF004CB0E9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
 		B044660F1D2B9F3D004CB0E9 /* WebResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebResource.swift; sourceTree = "<group>"; };
@@ -118,9 +122,9 @@
 				B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */,
 				B04466071D2B4ECF004CB0E9 /* WebService.swift */,
 				B044660F1D2B9F3D004CB0E9 /* WebResource.swift */,
+				B01B3DBE1D3240DB007C1212 /* CoreDataStack.swift */,
 				B01B3DBC1D3232BB007C1212 /* CoreDataModel.swift */,
 				B01B3DC41D325397007C1212 /* CoreDataSchema.swift */,
-				B01B3DBE1D3240DB007C1212 /* CoreDataStack.swift */,
 			);
 			name = Source;
 			path = ../Source;
@@ -133,8 +137,10 @@
 				B0971D641D281251005BBEE8 /* URLTests.swift */,
 				B0956B101D2A3911000BC8D0 /* IntTests.swift */,
 				B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */,
-				B01B3DBA1D3231C9007C1212 /* CoreDataModelTests.swift */,
 				B01B3DC01D32435A007C1212 /* CoreDataStackTests.swift */,
+				B01B3DBA1D3231C9007C1212 /* CoreDataModelTests.swift */,
+				B01B3DC61D3274F0007C1212 /* CoreDataSchemaTests.swift */,
+				B01B3DC81D327560007C1212 /* TestCoreDataSchema.swift */,
 				B0971D5A1D281211005BBEE8 /* Info.plist */,
 			);
 			path = CHFoundationTests;
@@ -276,8 +282,10 @@
 				B01B3DC11D32435A007C1212 /* CoreDataStackTests.swift in Sources */,
 				B0971D651D281251005BBEE8 /* StringTests.swift in Sources */,
 				B044660A1D2B4EEA004CB0E9 /* WebServiceTests.swift in Sources */,
+				B01B3DC71D3274F0007C1212 /* CoreDataSchemaTests.swift in Sources */,
 				B0971D661D281251005BBEE8 /* URLTests.swift in Sources */,
 				B01B3DBB1D3231C9007C1212 /* CoreDataModelTests.swift in Sources */,
+				B01B3DC91D327560007C1212 /* TestCoreDataSchema.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,7 @@ public final class CoreDataModel: NSManagedObjectModel {
         
         let schemaType = schema.dynamicType
         
-        if contains(schemaType: schemaType) { return }
+        if validate(schemaType: schemaType) { return }
         
         let entityName = schemaType.identifier
         let entity = NSEntityDescription()
@@ -25,7 +25,7 @@ public final class CoreDataModel: NSManagedObjectModel {
         entity.name = entityName
         entity.managedObjectClassName = entityName
 
-        for (key, valueType) in schema.template {
+        for (key, valueType) in schema.dynamicType.template {
 
             switch valueType {
             case .string:
@@ -36,12 +36,30 @@ public final class CoreDataModel: NSManagedObjectModel {
                 property.isOptional = true
 
                 entity.properties.append(property)
-            
             }
             
         }
         
         entities.append(entity)
+        
+    }
+    
+}
+
+
+// MARK: NSManagedObjectModel
+
+public extension NSManagedObjectModel {
+    
+    public func validate(schemaType: CoreDataSchema.Type) -> Bool {
+        
+        guard let entity = entitiesByName[schemaType.identifier]
+            else { return false }
+        
+        let templateSet = Set(schemaType.template.map({ $0.key }))
+        let objectSet = Set(entity.propertiesByName.map({ $0.key }))
+        
+        return templateSet.elementsEqual(objectSet)
         
     }
     
