@@ -1,5 +1,5 @@
 //
-//  WebServiceTest.swift
+//  WebServiceTests.swift
 //  CHFoundation
 //
 //  Created by 許郁棋 on 2016/7/5.
@@ -9,7 +9,7 @@
 @testable import CHFoundation
 import XCTest
 
-class WebServiceTest: XCTestCase {
+class WebServiceTests: XCTestCase {
     
 //    var webService: WebService?
     
