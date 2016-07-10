@@ -22,11 +22,9 @@ struct CoreDataStack {
         
         do {
             
-            let storePath = try directory.path
+            let storeURL = try directory.url
                 .appendingPathComponent(name)
                 .appendingPathExtension("sqlite")
-            
-            let storeURL = URL(string: storePath)!
             
             try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
             
