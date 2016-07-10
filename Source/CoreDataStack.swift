@@ -12,10 +12,10 @@ public struct CoreDataStack {
     
     let context: NSManagedObjectContext
     let storeCoordinator: NSPersistentStoreCoordinator
-    let storeURL: NSURL?
+    let storeType: StoreType
     
     public enum StoreType {
-        case directory(Directory)
+        case local(storeURL: URL)
         case memory
     }
     
@@ -28,26 +28,18 @@ public struct CoreDataStack {
         do {
             
             switch storeType {
-            case .directory(let directory):
-                
-                let storeURL = try directory.url
-                    .appendingPathComponent(name)
-                    .appendingPathExtension("sqlite")
+            case .local(let storeURL):
                 
                 try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
-                
-                self.context = context
-                self.storeCoordinator = storeCoordinator
-                self.storeURL = storeURL
                 
             case .memory:
                 
                 try storeCoordinator.addPersistentStore(ofType: NSInMemoryStoreType, configurationName: nil, at: nil, options: options)
-                
-                self.context = context
-                self.storeCoordinator = storeCoordinator
-                self.storeURL = nil
             }
+            
+            self.context = context
+            self.storeCoordinator = storeCoordinator
+            self.storeType = storeType
             
         }
         catch { throw error }

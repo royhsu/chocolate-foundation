@@ -14,24 +14,28 @@ class CoreDataStackTests: XCTestCase {
     
     func testInitInDirectoy() {
         
+        let name = "Test"
+        let storeURL = try! Directory.document(mask: .userDomainMask).url
+            .appendingPathComponent(name)
+            .appendingPathExtension("sqlite")
+        
         let stack = try? CoreDataStack(
-            name: "Test",
+            name: name,
             model: NSManagedObjectModel(),
             context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType),
             options: nil,
-            storeType: .directory(.document(mask: .userDomainMask))
+            storeType: .local(storeURL: storeURL)
         )
         
         XCTAssertNotNil(stack, "Cannot initialize stack.")
-        
-        XCTAssertNotNil(stack!.storeURL, "Should have store url.")
         
     }
     
     func testInitInMemory() {
         
+        let name = "Test"
         let stack = try? CoreDataStack(
-            name: "Test",
+            name: name,
             model: NSManagedObjectModel(),
             context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType),
             options: nil,
@@ -39,8 +43,6 @@ class CoreDataStackTests: XCTestCase {
         )
         
         XCTAssertNotNil(stack, "Cannot initialize stack.")
-        
-        XCTAssertNil(stack!.storeURL, "Should not have store url.")
         
     }
     
