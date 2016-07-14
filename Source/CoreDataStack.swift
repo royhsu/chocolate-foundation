@@ -19,16 +19,16 @@ public class CoreDataStack {
     // MARK: Property
     
     /// The context in the main thread for UI displaying.
-    let viewContext: NSManagedObjectContext
+    public let viewContext: NSManagedObjectContext
     
     /// The context in the background thread for writing data. Make sure to use this context for writing tasks instead of creating a new one manually.
-    let writerContext: NSManagedObjectContext
+    public let writerContext: NSManagedObjectContext
     
     /// The persistent store coordinator shared by view context and writer context.
-    let storeCoordinator: NSPersistentStoreCoordinator
+    public let storeCoordinator: NSPersistentStoreCoordinator
     
     /// The store type for persistent store coordinator.
-    let storeType: StoreType
+    public let storeType: StoreType
     
     
     // MARK: Init
@@ -49,7 +49,7 @@ public class CoreDataStack {
      - Returns: A core data stack instance.
     */
     
-    init(name: String, model: NSManagedObjectModel, options: [NSObject: AnyObject]? = nil, storeType: StoreType) throws {
+    public init(name: String, model: NSManagedObjectModel, options: [NSObject: AnyObject]? = nil, storeType: StoreType) throws {
         
         let storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         

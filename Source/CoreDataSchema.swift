@@ -38,17 +38,17 @@ public protocol CoreDataSchema: class, Identifiable {
 
 // MARK: Identifiable
 
-extension CoreDataSchema {
+public extension CoreDataSchema {
     
     /// Overriding this property for custom identifier of schema. Default is its type name.
-    public static var identifier: String { return String(self) }
+    static var identifier: String { return String(self) }
     
 }
 
 
 // MARK: NSManagedObject
 
-extension CoreDataSchema {
+public extension CoreDataSchema {
     
     /**
      This method will generate a managed object for you by inserting into managed object context.
@@ -60,7 +60,7 @@ extension CoreDataSchema {
      - Returns: The inserted managed object.
     */
     
-    public func insertObject(into context: NSManagedObjectContext) throws -> NSManagedObject {
+    func insertObject(into context: NSManagedObjectContext) throws -> NSManagedObject {
         
         guard let model = context.persistentStoreCoordinator?.managedObjectModel
             else {
@@ -91,7 +91,7 @@ extension CoreDataSchema {
      - Returns: The inserted managed object.
     */
     
-    public func insertObject(with json: [String: AnyObject], into context: NSManagedObjectContext) throws -> NSManagedObject {
+    func insertObject(with json: [String: AnyObject], into context: NSManagedObjectContext) throws -> NSManagedObject {
         
         let template = self.dynamicType.template
         let templateSet = Set(template.map({ $0.key }))
@@ -143,7 +143,7 @@ extension CoreDataSchema {
 
 // MARK: NSEntityDescription
 
-extension CoreDataSchema {
+public extension CoreDataSchema {
     
     /// An entity based on schema template.
     var entity: NSEntityDescription {
