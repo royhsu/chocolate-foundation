@@ -54,4 +54,43 @@ public extension String {
         
     }
     
+    enum JSONError: ErrorProtocol {
+        case fail(Encoding)
+    }
+    
+    
+    // TODO: documentation
+    init(jsonObject: AnyObject, encoding: Encoding = .utf8) throws {
+        
+        do {
+            
+            let data = try JSONSerialization.data(withJSONObject: jsonObject, options: [])
+            guard let jsonString = String(data: data, encoding: encoding)
+                else { throw JSONError.fail(encoding) }
+            
+            self = jsonString
+            
+        }
+        catch { throw error }
+        
+    }
+    
+    
+    // TODO: documentation
+    func jsonObject(with encoding: Encoding = .utf8, allowLossyConversion isLossy: Bool = true) throws -> AnyObject {
+        
+        guard let data = self.data(using: encoding, allowLossyConversion: isLossy)
+            else { throw JSONError.fail(encoding) }
+        
+        do {
+            
+            let json = try JSONSerialization.jsonObject(with: data, options: [])
+            
+            return json
+            
+        }
+        catch { throw error }
+        
+    }
+    
 }

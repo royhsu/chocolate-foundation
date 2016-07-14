@@ -18,7 +18,7 @@ public extension Int {
      - Parameter range: The range of generable numbers.
      
      - returns: A random number in the given range.
-     */
+    */
     // Reference: http://stackoverflow.com/questions/24132399/how-does-one-make-random-number-between-range-for-arc4random-uniform
     
     static func random(in range: Range<Int>) -> Int {

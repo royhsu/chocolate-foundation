@@ -10,6 +10,7 @@ import CoreData
 
 public enum ValueType {
     case string
+    case date
 }
 
 public typealias Template = [String: ValueType]
@@ -28,7 +29,7 @@ public protocol CoreDataSchema: class, Identifiable {
     
     
     // MARK: Property
-
+    
     static var template: Template { get }
     
 }
@@ -38,7 +39,7 @@ public protocol CoreDataSchema: class, Identifiable {
 
 extension CoreDataSchema {
     
-    public static var identifier: String { return String(self.dynamicType) }
+    public static var identifier: String { return String(self) }
     
 }
 
@@ -46,16 +47,20 @@ extension CoreDataSchema {
 // MARK: NSManagedObject
 
 extension CoreDataSchema {
-
+    
     public func insertObject(into context: NSManagedObjectContext) throws -> NSManagedObject {
         
         guard let model = context.persistentStoreCoordinator?.managedObjectModel
-            else { throw CoreDataSchemaError.noModelInContext }
+            else {
+                
+                throw CoreDataSchemaError.noModelInContext
+                
+        }
         
         if !model.validate(schemaType: self.dynamicType) {
             
             throw CoreDataSchemaError.invalidSchemaInModel
-        
+            
         }
         
         return NSEntityDescription.insertNewObject(forEntityName: self.dynamicType.identifier, into: context)
@@ -68,14 +73,14 @@ extension CoreDataSchema {
         let templateSet = Set(template.map({ $0.key }))
         let jsonSet = Set(json.map({ $0.key }))
         
-        if !templateSet.elementsEqual(jsonSet) {
+        if !templateSet.subtracting(jsonSet).isEmpty {
             
             throw CoreDataSchemaError.jsonKeysNotMatchingSchema
-        
+            
         }
         
         do {
-        
+            
             let object = try insertObject(into: context)
             
             for (key, value) in json {
@@ -89,9 +94,16 @@ extension CoreDataSchema {
                         
                     }
                     
-                    object.setValue(value, forKey: key)
+                case .date:
                     
+                    if !(value is Date) {
+                        
+                        throw CoreDataSchemaError.valueTypeNotMatching(forKey: key)
+                        
+                    }
                 }
+                
+                object.setValue(value, forKey: key)
                 
             }
             
@@ -99,6 +111,49 @@ extension CoreDataSchema {
             
         }
         catch { throw error }
+        
+    }
+    
+}
+
+
+// MARK: NSEntityDescription
+
+extension CoreDataSchema {
+    
+    var entity: NSEntityDescription {
+        
+        let schemaType = self.dynamicType
+        let entityName = schemaType.identifier
+        let entity = NSEntityDescription()
+        
+        entity.name = entityName
+        
+        for (key, valueType) in self.dynamicType.template {
+            
+            switch valueType {
+            case .string:
+                
+                let property = NSAttributeDescription()
+                property.name = key
+                property.attributeType = .stringAttributeType
+                property.isOptional = true
+                
+                entity.properties.append(property)
+                
+            case .date:
+                
+                let property = NSAttributeDescription()
+                property.name = key
+                property.attributeType = .dateAttributeType
+                property.isOptional = true
+                
+                entity.properties.append(property)
+            }
+            
+        }
+        
+        return entity
         
     }
     
