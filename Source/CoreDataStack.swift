@@ -36,7 +36,7 @@ public class CoreDataStack {
     /**
      The initializer for creating a stack instance.
      
-     - Author: Roy Hsu
+     - Author: Roy Hsu.
      
      - Parameter name: The model name.
      

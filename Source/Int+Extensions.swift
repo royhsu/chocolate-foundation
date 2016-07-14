@@ -13,7 +13,7 @@ public extension Int {
     /**
      A convenience method that randomly generate a int number with the given range.
      
-     - Author: Roy Hsu
+     - Author: Roy Hsu.
      
      - Parameter range: The range of generable numbers.
      

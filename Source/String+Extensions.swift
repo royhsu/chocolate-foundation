@@ -16,9 +16,9 @@ public extension String {
     /**
      A convenience method that help you to append a path to the original string.
      
-     - Author: Roy Hsu
+     - Author: Roy Hsu.
      
-     - Parameter component: The path component to be appending with
+     - Parameter component: The path component to be appending with.
      
      - Returns: The appended result of the string.
      
@@ -35,9 +35,9 @@ public extension String {
     /**
      A convenience method that help you to append a extension to the original string.
      
-     - Author: Roy Hsu
+     - Author: Roy Hsu.
      
-     - Parameter extension: The path extension to be appending with
+     - Parameter extension: The path extension to be appending with.
      
      - Returns: The appended result of the string.
      
@@ -57,7 +57,6 @@ public extension String {
         
     }
     
-    
 }
 
 
@@ -72,7 +71,7 @@ public extension String {
     /**
      Generating json string with json object.
      
-     - Author: Roy Hsu
+     - Author: Roy Hsu.
      
      - Parameter jsonObject: The json object to convert with.
      
@@ -97,14 +96,14 @@ public extension String {
     /**
      Converting json string to json object.
      
-     - Author: Roy Hsu
+     - Author: Roy Hsu.
      
      - Parameter encoding: The encoding method. Default is .utf8.
      
      - Parameter isLossy: Is allowing loss during converstion or not.
      
      - Returns: The json object.
-     */
+    */
     
     func jsonObject(with encoding: Encoding = .utf8, allowLossyConversion isLossy: Bool = true) throws -> AnyObject {
         

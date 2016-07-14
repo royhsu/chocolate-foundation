@@ -13,10 +13,12 @@ public extension URL {
     /**
      A convenience method that returns complete file path in specific directory.
      
-     - Author: Roy Hsu
+     - Author: Roy Hsu.
      
      - Parameter filename: The file name.
+     
      - Parameter extension: The file extension.
+     
      - Parameter directory: The directory.
      
      - returns: The specific file path in document directory.

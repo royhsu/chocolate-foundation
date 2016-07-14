@@ -30,6 +30,7 @@ public protocol CoreDataSchema: class, Identifiable {
     
     // MARK: Property
     
+    /// Please define required fileds in this template.
     static var template: Template { get }
     
 }
@@ -39,6 +40,7 @@ public protocol CoreDataSchema: class, Identifiable {
 
 extension CoreDataSchema {
     
+    /// Overriding this property for custom identifier of schema. Default is its type name.
     public static var identifier: String { return String(self) }
     
 }
@@ -47,6 +49,16 @@ extension CoreDataSchema {
 // MARK: NSManagedObject
 
 extension CoreDataSchema {
+    
+    /**
+     This method will generate a managed object for you by inserting into managed object context.
+     
+     - Author: Roy Hsu.
+     
+     - Parameter context: The destination managed context.
+     
+     - Returns: The inserted managed object.
+    */
     
     public func insertObject(into context: NSManagedObjectContext) throws -> NSManagedObject {
         
@@ -66,6 +78,18 @@ extension CoreDataSchema {
         return NSEntityDescription.insertNewObject(forEntityName: self.dynamicType.identifier, into: context)
         
     }
+    
+    /**
+     This method will generate a managed object with json object for you by inserting into managed object context.
+     
+     - Author: Roy Hsu.
+     
+     - Parameter json: A json object in dictionary format.
+     
+     - Parameter context: The destination managed context.
+     
+     - Returns: The inserted managed object.
+    */
     
     public func insertObject(with json: [String: AnyObject], into context: NSManagedObjectContext) throws -> NSManagedObject {
         
@@ -121,6 +145,7 @@ extension CoreDataSchema {
 
 extension CoreDataSchema {
     
+    /// An entity based on schema template.
     var entity: NSEntityDescription {
         
         let schemaType = self.dynamicType
@@ -164,6 +189,7 @@ extension CoreDataSchema {
 
 extension CoreDataSchema {
     
+    /// A fetch request for schema entity.
     public static var fetchRequest: NSFetchRequest<NSManagedObject> {
         
         return NSFetchRequest<NSManagedObject>(entityName: identifier)

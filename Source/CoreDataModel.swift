@@ -16,7 +16,7 @@ public final class CoreDataModel: NSManagedObjectModel {
     /**
      This function will validate the input entity properties with schema fields that do match before adding it into model.
      
-     - Author: Roy Hsu
+     - Author: Roy Hsu.
      
      - Parameter entity: The entity to add with.
      
