@@ -22,7 +22,6 @@ class CoreDataStackTests: XCTestCase {
         let stack = try? CoreDataStack(
             name: name,
             model: NSManagedObjectModel(),
-            context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType),
             options: nil,
             storeType: .local(storeURL: storeURL)
         )
@@ -37,7 +36,6 @@ class CoreDataStackTests: XCTestCase {
         let stack = try? CoreDataStack(
             name: name,
             model: NSManagedObjectModel(),
-            context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType),
             options: nil,
             storeType: .memory
         )

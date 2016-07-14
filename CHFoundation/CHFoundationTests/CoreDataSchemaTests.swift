@@ -22,12 +22,11 @@ class CoreDataSchemaTests: XCTestCase {
         schema = TestCoreDataSchema()
         
         model = CoreDataModel()
-        model!.add(schema: schema!)
+        model!.add(entity: schema!.entity, of: TestCoreDataSchema.self)
         
         stack = try! CoreDataStack(
             name: "Test",
             model: model!,
-            context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType),
             options: nil,
             storeType: .memory
         )
@@ -45,7 +44,7 @@ class CoreDataSchemaTests: XCTestCase {
 
     func testInsertObject() {
         
-        let object = try? schema!.insertObject(into: stack!.context)
+        let object = try? schema!.insertObject(into: stack!.writerContext)
         
         XCTAssertNotNil(object, "Cannot insert a object into context.")
         
@@ -58,7 +57,7 @@ class CoreDataSchemaTests: XCTestCase {
                 "firstName": "Chocolate",
                 "lastName": "Awesome"
             ],
-            into: stack!.context
+            into: stack!.writerContext
         )
         
         XCTAssertNotNil(object, "Cannot insert a object with json into context.")

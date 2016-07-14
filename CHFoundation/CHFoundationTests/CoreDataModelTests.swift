@@ -21,6 +21,8 @@ class CoreDataModelTests: XCTestCase {
         model = CoreDataModel()
         schema = TestCoreDataSchema()
         
+        model!.add(entity: schema!.entity, of: TestCoreDataSchema.self)
+        
     }
     
     override func tearDown() {
@@ -33,15 +35,11 @@ class CoreDataModelTests: XCTestCase {
     
     func testValidate() {
         
-        model!.add(schema: schema!)
-        
         XCTAssert(model!.validate(schemaType: TestCoreDataSchema.self), "Validation failed.")
         
     }
     
     func testAddSchema() {
-        
-        model!.add(schema: schema!)
         
         let isValidSchema = model!.entitiesByName.contains({ $0.key == TestCoreDataSchema.identifier })
         

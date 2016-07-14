@@ -67,4 +67,62 @@ class StringTests: XCTestCase {
         
     }
     
+    func testConvertingJSONString() {
+        
+        let jsonObject: [NSObject: AnyObject] = [
+            "name": "Allen",
+            "age": 20
+        ]
+        
+        do {
+            
+            let jsonString = try String(jsonObject: jsonObject)
+            
+            let expectedJSONString = "{\"age\":20,\"name\":\"Allen\"}"
+            
+            XCTAssertEqual(jsonString, expectedJSONString)
+            
+        }
+        catch {
+        
+            XCTAssertNil(error, "Should not throw a error.")
+        
+        }
+        
+    }
+    
+    func testConvertingJSONObject() {
+        
+        let jsonString = "{\"age\":20,\"name\":\"Allen\"}"
+        
+        do {
+            
+            let jsonObject = try jsonString.jsonObject() as? [NSObject: AnyObject]
+            
+            XCTAssertNotNil(jsonObject, "The converted result should be a dictionary.")
+            
+            let expectedJSONObject: [NSObject: AnyObject] = [
+                "name": "Allen",
+                "age": 20
+            ]
+            
+            let name = jsonObject!["name"] as? Int
+            let expectedName = expectedJSONObject["name"] as? Int
+            
+            XCTAssertEqual(name, expectedName, "The converted key value pairs doesn't match.")
+            
+            let age = jsonObject!["age"] as? Int
+            let expectedAge = expectedJSONObject["age"] as? Int
+                
+            XCTAssertEqual(age, expectedAge, "The converted key value pairs doesn't match.")
+            
+        }
+        catch {
+            
+            XCTAssertNil(error, "Should not throw a error.")
+            
+        }
+        
+    }
+    
 }
