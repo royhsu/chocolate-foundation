@@ -18,13 +18,36 @@ public class CoreDataStack {
     
     // MARK: Property
     
+    /// The context in the main thread for UI displaying.
     let viewContext: NSManagedObjectContext
+    
+    /// The context in the background thread for writing data. Make sure to use this context for writing tasks instead of creating a new one manually.
     let writerContext: NSManagedObjectContext
+    
+    /// The persistent store coordinator shared by view context and writer context.
     let storeCoordinator: NSPersistentStoreCoordinator
+    
+    /// The store type for persistent store coordinator.
     let storeType: StoreType
     
     
     // MARK: Init
+    
+    /**
+     The initializer for creating a stack instance.
+     
+     - Author: Roy Hsu
+     
+     - Parameter name: The model name.
+     
+     - Parameter model: The model for stack.
+     
+     - Parameter options: The options for persistent store coordinator.
+     
+     - Parameter storeType: The persistent store coordinator store type.
+     
+     - Returns: A core data stack instance.
+    */
     
     init(name: String, model: NSManagedObjectModel, options: [NSObject: AnyObject]? = nil, storeType: StoreType) throws {
         
@@ -65,6 +88,9 @@ public class CoreDataStack {
         
     }
     
+    
+    // MARK: Deinit
+    
     deinit {
         
         NotificationCenter.default.removeObserver(
@@ -78,6 +104,7 @@ public class CoreDataStack {
     
     // MARK: Notification
     
+    /// The receiver will merge changes from other contexts when receiving NSManagedObjectContextDidSave notificatons.
     @objc public func contextDidSave(notification: Notification) {
         
         guard let childContext = notification.object as? NSManagedObjectContext
