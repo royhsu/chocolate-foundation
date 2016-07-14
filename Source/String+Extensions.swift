@@ -8,6 +8,9 @@
 
 import Foundation
 
+
+// MARK: File Path
+
 public extension String {
     
     /**
@@ -54,12 +57,28 @@ public extension String {
         
     }
     
+    
+}
+
+
+// MARK: JSON
+
+public extension String {
+    
     enum JSONError: ErrorProtocol {
         case fail(Encoding)
     }
     
+    /**
+     Generating json string with json object.
+     
+     - Author: Roy Hsu
+     
+     - Parameter jsonObject: The json object to convert with.
+     
+     - Parameter encoding: The encoding method. Default is .utf8.
+    */
     
-    // TODO: documentation
     init(jsonObject: AnyObject, encoding: Encoding = .utf8) throws {
         
         do {
@@ -75,8 +94,18 @@ public extension String {
         
     }
     
+    /**
+     Converting json string to json object.
+     
+     - Author: Roy Hsu
+     
+     - Parameter encoding: The encoding method. Default is .utf8.
+     
+     - Parameter isLossy: Is allowing loss during converstion or not.
+     
+     - Returns: The json object.
+     */
     
-    // TODO: documentation
     func jsonObject(with encoding: Encoding = .utf8, allowLossyConversion isLossy: Bool = true) throws -> AnyObject {
         
         guard let data = self.data(using: encoding, allowLossyConversion: isLossy)
