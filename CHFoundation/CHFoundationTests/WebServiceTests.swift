@@ -57,7 +57,7 @@ class WebServiceTests: XCTestCase {
         super.tearDown()
     }
     
-    func testSuccessfulResponse() {
+    func testRequestAndParsingModel() {
     
         let expectation = self.expectation(description: "Request data with web service.")
         let mockSession = MockURLSession()
@@ -74,7 +74,7 @@ class WebServiceTests: XCTestCase {
             }
             .always { expectation.fulfill() }
         
-        waitForExpectations(timeout: 3.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
         
     }
     
