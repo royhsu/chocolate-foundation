@@ -41,7 +41,7 @@ class CoreDataModelTests: XCTestCase {
     
     func testAddSchema() {
         
-        let isValidSchema = model!.entitiesByName.contains({ $0.key == TestCoreDataSchema.identifier })
+        let isValidSchema = model!.entitiesByName.contains(where: { $0.key == TestCoreDataSchema.identifier })
         
         XCTAssert(isValidSchema, "Schema should be added.")
         

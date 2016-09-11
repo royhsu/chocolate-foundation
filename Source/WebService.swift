@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum WebServiceError: ErrorProtocol {
+public enum WebServiceError: Error {
     case invalidResponse
     case message(String)
     case data(Data?)
@@ -17,9 +17,9 @@ public enum WebServiceError: ErrorProtocol {
 
 public struct WebService<Model>: Equatable {
     
-    public typealias ErrorParser = (data: Data?, urlResponse: URLResponse?, error: NSError?) -> ErrorProtocol
-    public typealias SuccessHandler = (model: Model) -> Void
-    public typealias FailHandler = (statusCode: Int?, error: ErrorProtocol) -> Void
+    public typealias ErrorParser = (_ data: Data?, _ urlResponse: URLResponse?, _ error: Error?) -> Error
+    public typealias SuccessHandler = (Model) -> Void
+    public typealias FailHandler = (_ statusCode: Int?, _ error: Error) -> Void
     
     
     // MARK: Property
@@ -38,13 +38,13 @@ public struct WebService<Model>: Equatable {
     // 1. Option for go back to main queue automatically.
     // 2. Option for errorParser.
     
-    public func request(with urlSession: URLSession, errorParser: ErrorParser? = nil, successHandler: SuccessHandler, failHandler: FailHandler? = nil) -> URLSessionTask {
+    public func request(with urlSession: URLSession, errorParser: ErrorParser? = nil, successHandler: @escaping SuccessHandler, failHandler: FailHandler? = nil) -> URLSessionTask {
         
         let sessionTask = urlSession.dataTask(with: webResource.urlRequest) { data, response, error in
             
             guard let response = response as? HTTPURLResponse else {
                 
-                failHandler?(statusCode: nil, error: WebServiceError.invalidResponse)
+                failHandler?(nil, WebServiceError.invalidResponse)
                 
                 return
                 
@@ -52,9 +52,9 @@ public struct WebService<Model>: Equatable {
             
             let statusCode = response.statusCode
             
-            if let errorParsingError = errorParser?(data: data, urlResponse: response, error: error) {
+            if let errorParsingError = errorParser?(data, response, error) {
                 
-                failHandler?(statusCode: statusCode, error: errorParsingError)
+                failHandler?(statusCode, errorParsingError)
                 
                 return
                 
@@ -64,7 +64,7 @@ public struct WebService<Model>: Equatable {
                 
                 let serverError: WebServiceError = .message(error.localizedDescription)
                 
-                failHandler?(statusCode: statusCode, error: serverError)
+                failHandler?(statusCode, serverError)
                 
                 return
             
@@ -74,7 +74,7 @@ public struct WebService<Model>: Equatable {
              
                 let serverError: WebServiceError = .message(NSLocalizedString("Unaccepted status code.", comment: ""))
                 
-                failHandler?(statusCode: statusCode, error: serverError)
+                failHandler?(statusCode, serverError)
                 
                 return
                 
@@ -85,20 +85,20 @@ public struct WebService<Model>: Equatable {
                 let data = data ?? Data()
                 let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
                 
-                guard let model = self.webResource.parse(json: jsonObject) else {
+                guard let model = self.webResource.parse(jsonObject) else {
                     
                     let error: WebServiceError = .modelParsing
                     
-                    failHandler?(statusCode: nil, error: error)
+                    failHandler?(nil, error)
                     
                     return
                     
                 }
                 
-                successHandler(model: model)
+                successHandler(model)
                 
             }
-            catch { failHandler?(statusCode: statusCode, error: error) }
+            catch { failHandler?(statusCode, error) }
         
         }
         

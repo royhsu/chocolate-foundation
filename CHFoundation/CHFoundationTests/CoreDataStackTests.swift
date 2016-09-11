@@ -14,13 +14,12 @@ class CoreDataStackTests: XCTestCase {
     
     func testInitInDirectoy() {
         
-        let name = "Test"
-        let storeURL = try! Directory.document(mask: .userDomainMask).url
-            .appendingPathComponent(name)
-            .appendingPathExtension("sqlite")
+        let filename = "Test"
+        let document = Directory.document(domainMask: .userDomainMask)
+        let storeURL = URL.fileURL(filename: filename, withExtension: "sqlite", in: document)
         
         let stack = try? CoreDataStack(
-            name: name,
+            name: filename,
             model: NSManagedObjectModel(),
             options: nil,
             storeType: .local(storeURL: storeURL)

@@ -9,63 +9,13 @@
 import Foundation
 
 
-// MARK: File Path
-
-public extension String {
-    
-    /**
-     A convenience method that help you to append a path to the original string.
-     
-     - Author: Roy Hsu.
-     
-     - Parameter component: The path component to be appending with.
-     
-     - Returns: The appended result of the string.
-     
-     - Important: This function only works in file path. DO NOT apply it on URL string.
-    */
-    // Reference: http://stackoverflow.com/questions/2579544/nsstrings-stringbyappendingpathcomponent-removes-a-in-http
-    
-    func appendingPathComponent(_ pathComponent: String) -> String {
-        
-        return (self as NSString).appendingPathComponent(pathComponent)
-        
-    }
-    
-    /**
-     A convenience method that help you to append a extension to the original string.
-     
-     - Author: Roy Hsu.
-     
-     - Parameter extension: The path extension to be appending with.
-     
-     - Returns: The appended result of the string.
-     
-     - Important: This function only works in file path. DO NOT apply it on URL string.
-    */
-    
-    enum AppendingPathExtensionError: ErrorProtocol {
-        case noValidFilePath
-    }
-    
-    func appendingPathExtension(_ pathExtension: String) throws -> String {
-        
-        guard let filePath = (self as NSString).appendingPathExtension(pathExtension)
-            else { throw AppendingPathExtensionError.noValidFilePath }
-        
-        return filePath
-        
-    }
-    
-}
-
-
 // MARK: JSON
 
 public extension String {
     
-    enum JSONError: ErrorProtocol {
-        case fail(Encoding)
+    enum JSONObjectError: Error {
+        case invalidData
+        case invalidString
     }
     
     /**
@@ -78,13 +28,18 @@ public extension String {
      - Parameter encoding: The encoding method. Default is .utf8.
     */
     
-    init(jsonObject: AnyObject, encoding: Encoding = .utf8) throws {
+    init(jsonObject: Any, encoding: Encoding = .utf8, options: JSONSerialization.WritingOptions = []) throws {
         
         do {
             
-            let data = try JSONSerialization.data(withJSONObject: jsonObject, options: [])
-            guard let jsonString = String(data: data, encoding: encoding)
-                else { throw JSONError.fail(encoding) }
+            let data = try JSONSerialization.data(withJSONObject: jsonObject, options: options)
+            guard
+                let jsonString = String(data: data, encoding: encoding)
+                else {
+                    
+                    throw JSONObjectError.invalidData
+                    
+            }
             
             self = jsonString
             
@@ -105,14 +60,19 @@ public extension String {
      - Returns: The json object.
     */
     
-    func jsonObject(with encoding: Encoding = .utf8, allowLossyConversion isLossy: Bool = true) throws -> AnyObject {
+    func jsonObject(using encoding: Encoding = .utf8, allowLossyConversion isLossy: Bool = true, options: JSONSerialization.ReadingOptions = []) throws -> Any {
         
-        guard let data = self.data(using: encoding, allowLossyConversion: isLossy)
-            else { throw JSONError.fail(encoding) }
+        guard
+            let data = self.data(using: encoding, allowLossyConversion: isLossy)
+            else {
+                
+                throw JSONObjectError.invalidString
+                
+        }
         
         do {
             
-            let json = try JSONSerialization.jsonObject(with: data, options: [])
+            let json = try JSONSerialization.jsonObject(with: data, options: options)
             
             return json
             

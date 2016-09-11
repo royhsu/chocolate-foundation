@@ -27,19 +27,14 @@ public extension URL {
     */
     // Reference: http://stackoverflow.com/questions/32716895/error-the-file-doesnt-exist-when-calling-writetofile-on-imagedata
     
-    init(filename: String, withExtension `extension`: String, `in` directory: Directory) throws {
-        
-        do {
-            
-            let filePath = try directory.path
-                .appendingPathComponent(filename)
-                .appendingPathExtension(`extension`)
-            
-            self.init(fileURLWithPath: filePath, isDirectory: false)
-            
-        }
-        catch { throw error }
-        
+    static func fileURL(filename: String, withExtension `extension`: String, `in` directory: Directory) -> URL {
+    
+        return
+            directory
+            .url
+            .appendingPathComponent(filename)
+            .appendingPathExtension(`extension`)
+    
     }
     
 }

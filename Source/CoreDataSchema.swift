@@ -15,7 +15,7 @@ public enum ValueType {
 
 public typealias Template = [String: ValueType]
 
-public enum CoreDataSchemaError: ErrorProtocol {
+public enum CoreDataSchemaError: Error {
     case noModelInContext
     case invalidSchemaInModel
     case jsonKeysNotMatchingSchema
@@ -41,7 +41,7 @@ public protocol CoreDataSchema: class, Identifiable {
 public extension CoreDataSchema {
     
     /// Overriding this property for custom identifier of schema. Default is its type name.
-    static var identifier: String { return String(self) }
+    static var identifier: String { return String(describing: self) }
     
 }
 
@@ -69,13 +69,15 @@ public extension CoreDataSchema {
                 
         }
         
-        if !model.validate(schemaType: self.dynamicType) {
+        let schemaType = type(of: self)
+        
+        if !model.validate(schemaType: schemaType) {
             
             throw CoreDataSchemaError.invalidSchemaInModel
             
         }
         
-        return NSEntityDescription.insertNewObject(forEntityName: self.dynamicType.identifier, into: context)
+        return NSEntityDescription.insertNewObject(forEntityName: Self.identifier, into: context)
         
     }
     
@@ -93,7 +95,7 @@ public extension CoreDataSchema {
     
     func insertObject(with json: [String: AnyObject], into context: NSManagedObjectContext) throws -> NSManagedObject {
         
-        let template = self.dynamicType.template
+        let template = Self.template
         let templateSet = Set(template.map({ $0.key }))
         let jsonSet = Set(json.map({ $0.key }))
         
@@ -148,13 +150,13 @@ public extension CoreDataSchema {
     /// An entity based on schema template.
     var entity: NSEntityDescription {
         
-        let schemaType = self.dynamicType
+        let schemaType = type(of: self)
         let entityName = schemaType.identifier
         let entity = NSEntityDescription()
         
         entity.name = entityName
         
-        for (key, valueType) in self.dynamicType.template {
+        for (key, valueType) in Self.template {
             
             switch valueType {
             case .string:

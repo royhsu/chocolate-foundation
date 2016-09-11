@@ -44,23 +44,23 @@ class CoreDataSchemaTests: XCTestCase {
 
     func testInsertObject() {
         
-        let object = try? schema!.insertObject(into: stack!.writerContext)
+//        let object = try? schema!.insertObject(into: stack!.writerContext)
         
-        XCTAssertNotNil(object, "Cannot insert a object into context.")
+        XCTAssertNotNil(nil, "Cannot insert a object into context.")
         
     }
     
     func testInsertObjectWithJSON() {
         
-        let object = try? schema!.insertObject(
-            with: [
-                "firstName": "Chocolate",
-                "lastName": "Awesome"
-            ],
-            into: stack!.writerContext
-        )
-        
-        XCTAssertNotNil(object, "Cannot insert a object with json into context.")
+//        let object = try? schema!.insertObject(
+//            with: [
+//                "firstName": "Chocolate",
+//                "lastName": "Awesome"
+//            ],
+//            into: stack!.writerContext
+//        )
+//        
+        XCTAssertNotNil(nil, "Cannot insert a object with json into context.")
         
     }
     
