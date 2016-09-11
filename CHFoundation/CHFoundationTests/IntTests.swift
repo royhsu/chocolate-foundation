@@ -11,11 +11,14 @@ import XCTest
 
 class IntTests: XCTestCase {
     
+    
+    // MARK: Random number
+    
     func testRandomNumberGeneratorInRange() {
         
         for _ in 0..<1000 {
             
-            let range = Range(0..<20)
+            let range: Range<Int> = 0..<20
             
             let randomNumber = Int.random(in: range)
             

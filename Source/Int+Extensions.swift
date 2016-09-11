@@ -8,14 +8,17 @@
 
 import Foundation
 
+
+// MARK: - Random number
+
 public extension Int {
     
     /**
-     A convenience method that randomly generate a int number with the given range.
+     A convenience method that generate a random number with the given range.
      
      - Author: Roy Hsu.
      
-     - Parameter range: The range of generable numbers.
+     - Parameter range: The range of numbers.
      
      - returns: A random number in the given range.
     */
