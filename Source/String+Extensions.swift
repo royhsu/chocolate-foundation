@@ -9,7 +9,7 @@
 import Foundation
 
 
-// MARK: JSON
+// MARK: - JSON
 
 public extension String {
     
@@ -26,6 +26,10 @@ public extension String {
      - Parameter jsonObject: The json object to convert with.
      
      - Parameter encoding: The encoding method. Default is .utf8.
+     
+     - Parameter options: The options for JSONSerialization. Default is empty.
+     
+     - Returns: The converted json string.
     */
     
     init(jsonObject: Any, encoding: Encoding = .utf8, options: JSONSerialization.WritingOptions = []) throws {
@@ -49,7 +53,7 @@ public extension String {
     }
     
     /**
-     Converting json string to json object.
+     Converting string to json object.
      
      - Author: Roy Hsu.
      
@@ -57,7 +61,9 @@ public extension String {
      
      - Parameter isLossy: Is allowing loss during converstion or not.
      
-     - Returns: The json object.
+     - Parameter options: The options for JSONSerialization. Default is empty.
+     
+     - Returns: The converted json object.
     */
     
     func jsonObject(using encoding: Encoding = .utf8, allowLossyConversion isLossy: Bool = true, options: JSONSerialization.ReadingOptions = []) throws -> Any {

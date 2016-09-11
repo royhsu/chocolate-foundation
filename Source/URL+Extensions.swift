@@ -8,6 +8,9 @@
 
 import Foundation
 
+
+// MARK: - File
+
 public extension URL {
     
     /**
@@ -19,9 +22,9 @@ public extension URL {
      
      - Parameter extension: The file extension.
      
-     - Parameter directory: The directory.
+     - Parameter directory: The destination directory.
      
-     - returns: The specific file path in document directory.
+     - returns: The file url.
      
      - Important: If you need to get the file path from the returned URL, please access self.path instead of self.absoluteString.
     */

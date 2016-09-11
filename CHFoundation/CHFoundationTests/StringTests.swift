@@ -11,6 +11,9 @@ import XCTest
 
 class StringTests: XCTestCase {
     
+    
+    // MARK: JSON
+    
     func testConvertingJSONObjectToString() {
         
         let jsonObject: [AnyHashable: Any] = [
