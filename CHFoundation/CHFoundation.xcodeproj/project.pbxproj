@@ -13,7 +13,6 @@
 		B01B3DC31D324D6C007C1212 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DC21D324D6C007C1212 /* Identifiable.swift */; };
 		B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466071D2B4ECF004CB0E9 /* WebService.swift */; };
 		B044660A1D2B4EEA004CB0E9 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */; };
-		B055A2FE1D85A78900A4E035 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B055A2FD1D85A78900A4E035 /* MockURLSession.swift */; };
 		B0956B061D2A0F14000BC8D0 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */; };
 		B0956B111D2A3911000BC8D0 /* IntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B101D2A3911000BC8D0 /* IntTests.swift */; };
 		B0971D441D28112D005BBEE8 /* CHFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B0971D431D28112D005BBEE8 /* CHFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +22,7 @@
 		B0971D5B1D281211005BBEE8 /* CHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0971D401D28112D005BBEE8 /* CHFoundation.framework */; };
 		B0971D651D281251005BBEE8 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D631D281251005BBEE8 /* StringTests.swift */; };
 		B0971D661D281251005BBEE8 /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D641D281251005BBEE8 /* URLTests.swift */; };
+		B0F919A01D864E2E0075B956 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F9199F1D864E2E0075B956 /* MockURLSession.swift */; };
 		CEA6B7595467177BE5704F4D /* Pods_CHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D2335E96674A01C1B3E562 /* Pods_CHFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +47,6 @@
 		B01B3DC21D324D6C007C1212 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		B04466071D2B4ECF004CB0E9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
-		B055A2FD1D85A78900A4E035 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		B0956B101D2A3911000BC8D0 /* IntTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntTests.swift; sourceTree = "<group>"; };
 		B0971D401D28112D005BBEE8 /* CHFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +59,7 @@
 		B0971D5A1D281211005BBEE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0971D631D281251005BBEE8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		B0971D641D281251005BBEE8 /* URLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
+		B0F9199F1D864E2E0075B956 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		FDAAEBAC62050CCC7D9C5DA0 /* Pods-CHFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHFoundation/Pods-CHFoundation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,14 +91,6 @@
 				8B084E714E387B2DCD857CC0 /* Pods_CHFoundationTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B055A2FC1D85A77E00A4E035 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				B055A2FD1D85A78900A4E035 /* MockURLSession.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		B0971D361D28112D005BBEE8 = {
@@ -134,6 +126,7 @@
 		B0971D4B1D281148005BBEE8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B0F9199E1D864E2E0075B956 /* Mock */,
 				B01B3DC21D324D6C007C1212 /* Identifiable.swift */,
 				B0971D4C1D281148005BBEE8 /* Directory.swift */,
 				B0971D4D1D281148005BBEE8 /* String+Extensions.swift */,
@@ -149,7 +142,6 @@
 		B0971D571D281211005BBEE8 /* CHFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
-				B055A2FC1D85A77E00A4E035 /* Mock */,
 				B0971D631D281251005BBEE8 /* StringTests.swift */,
 				B0971D641D281251005BBEE8 /* URLTests.swift */,
 				B0956B101D2A3911000BC8D0 /* IntTests.swift */,
@@ -158,6 +150,14 @@
 				B0971D5A1D281211005BBEE8 /* Info.plist */,
 			);
 			path = CHFoundationTests;
+			sourceTree = "<group>";
+		};
+		B0F9199E1D864E2E0075B956 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B0F9199F1D864E2E0075B956 /* MockURLSession.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		C1CC6AC9D82CE357B8918A84 /* Pods */ = {
@@ -369,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F919A01D864E2E0075B956 /* MockURLSession.swift in Sources */,
 				B0971D501D281148005BBEE8 /* String+Extensions.swift in Sources */,
 				B0956B061D2A0F14000BC8D0 /* Int+Extensions.swift in Sources */,
 				B0971D511D281148005BBEE8 /* URL+Extensions.swift in Sources */,
@@ -388,7 +389,6 @@
 				B0971D651D281251005BBEE8 /* StringTests.swift in Sources */,
 				B044660A1D2B4EEA004CB0E9 /* WebServiceTests.swift in Sources */,
 				B0971D661D281251005BBEE8 /* URLTests.swift in Sources */,
-				B055A2FE1D85A78900A4E035 /* MockURLSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
