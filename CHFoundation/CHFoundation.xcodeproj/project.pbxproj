@@ -23,6 +23,7 @@
 		B0971D651D281251005BBEE8 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D631D281251005BBEE8 /* StringTests.swift */; };
 		B0971D661D281251005BBEE8 /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D641D281251005BBEE8 /* URLTests.swift */; };
 		B0F919A01D864E2E0075B956 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F9199F1D864E2E0075B956 /* MockURLSession.swift */; };
+		B0F919A41D864F2B0075B956 /* CAAnimationHandler..swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F919A31D864F2B0075B956 /* CAAnimationHandler..swift */; };
 		CEA6B7595467177BE5704F4D /* Pods_CHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D2335E96674A01C1B3E562 /* Pods_CHFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		B0971D631D281251005BBEE8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		B0971D641D281251005BBEE8 /* URLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
 		B0F9199F1D864E2E0075B956 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		B0F919A31D864F2B0075B956 /* CAAnimationHandler..swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAAnimationHandler..swift; sourceTree = "<group>"; };
 		FDAAEBAC62050CCC7D9C5DA0 /* Pods-CHFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHFoundation/Pods-CHFoundation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 				B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */,
 				B04466071D2B4ECF004CB0E9 /* WebService.swift */,
 				B01B3DBE1D3240DB007C1212 /* CoreDataStack.swift */,
+				B0F919A31D864F2B0075B956 /* CAAnimationHandler..swift */,
 			);
 			name = Source;
 			path = ../Source;
@@ -373,6 +376,7 @@
 				B0971D501D281148005BBEE8 /* String+Extensions.swift in Sources */,
 				B0956B061D2A0F14000BC8D0 /* Int+Extensions.swift in Sources */,
 				B0971D511D281148005BBEE8 /* URL+Extensions.swift in Sources */,
+				B0F919A41D864F2B0075B956 /* CAAnimationHandler..swift in Sources */,
 				B01B3DC31D324D6C007C1212 /* Identifiable.swift in Sources */,
 				B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */,
 				B0971D4F1D281148005BBEE8 /* Directory.swift in Sources */,
