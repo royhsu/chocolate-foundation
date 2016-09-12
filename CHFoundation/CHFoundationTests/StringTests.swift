@@ -11,65 +11,12 @@ import XCTest
 
 class StringTests: XCTestCase {
     
-    func testAppendingPathComponent() {
-        
-        let appendingPath = "test"
-        
-        let filePath = "examples/example"
-        let finalFilePath = filePath.appendingPathComponent(appendingPath)
-        let expectedPath = filePath + "/\(appendingPath)"
-        
-        XCTAssertEqual(finalFilePath, expectedPath, "The result doesn't match.")
-        
-        let urlString = "http://example.com"
-        let finalURLString = urlString.appendingPathComponent(appendingPath)
-        let expectedURLString = urlString + "/\(appendingPath)"
-        
-        XCTAssertNotEqual(finalURLString, expectedURLString, "The result doesn't match.")
-        
-    }
     
-    func testAppendingPathExtension() {
-        
-        let appendingExtension = "txt"
-        
-        let filePath = "example"
-        
-        do {
-            
-            let finalFilePath = try filePath.appendingPathExtension(appendingExtension)
-            let expectedPath = filePath + ".\(appendingExtension)"
-        
-            XCTAssertEqual(finalFilePath, expectedPath, "The result doesn't match.")
-            
-        }
-        catch {
-            
-            XCTAssertNil(error, "Should not throw a error.")
-            
-        }
-        
-        let urlString = "http://example"
-        
-        do {
-        
-            let finalURLString = try urlString.appendingPathExtension(appendingExtension)
-            let expectedURLString = urlString + "/\(appendingExtension)"
-            
-            XCTAssertNotEqual(finalURLString, expectedURLString, "The result doesn't match.")
-            
-        }
-        catch {
-            
-            XCTAssertNil(error, "Should not throw a error.")
-            
-        }
-        
-    }
+    // MARK: JSON
     
-    func testConvertingJSONString() {
+    func testConvertingJSONObjectToString() {
         
-        let jsonObject: [NSObject: AnyObject] = [
+        let jsonObject: [AnyHashable: Any] = [
             "name": "Allen",
             "age": 20
         ]
@@ -78,43 +25,33 @@ class StringTests: XCTestCase {
             
             let jsonString = try String(jsonObject: jsonObject)
             
-            let expectedJSONString = "{\"age\":20,\"name\":\"Allen\"}"
+            let expectedJSONString = "{\"name\":\"Allen\",\"age\":20}"
             
             XCTAssertEqual(jsonString, expectedJSONString)
             
         }
         catch {
         
-            XCTAssertNil(error, "Should not throw a error.")
+            XCTAssertNil(error, "Cannot convert json object to string.")
         
         }
         
     }
     
-    func testConvertingJSONObject() {
+    func testConvertingStringToJSONObject() {
         
         let jsonString = "{\"age\":20,\"name\":\"Allen\"}"
         
         do {
             
-            let jsonObject = try jsonString.jsonObject() as? [NSObject: AnyObject]
+            let jsonObject = try jsonString.jsonObject() as! NSDictionary
             
-            XCTAssertNotNil(jsonObject, "The converted result should be a dictionary.")
-            
-            let expectedJSONObject: [NSObject: AnyObject] = [
+            let expectedJSONObject: NSDictionary = [
                 "name": "Allen",
                 "age": 20
             ]
             
-            let name = jsonObject!["name"] as? Int
-            let expectedName = expectedJSONObject["name"] as? Int
-            
-            XCTAssertEqual(name, expectedName, "The converted key value pairs doesn't match.")
-            
-            let age = jsonObject!["age"] as? Int
-            let expectedAge = expectedJSONObject["age"] as? Int
-                
-            XCTAssertEqual(age, expectedAge, "The converted key value pairs doesn't match.")
+            XCTAssertEqual(jsonObject, expectedJSONObject, "The converted key value pairs doesn't match.")
             
         }
         catch {

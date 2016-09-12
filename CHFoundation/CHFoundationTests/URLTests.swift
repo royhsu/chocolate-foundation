@@ -9,31 +9,24 @@
 import XCTest
 @testable import CHFoundation
 
+
 class URLTests: XCTestCase {
     
-    func testFileURLWithSpecificFileAndExtension() {
+    
+    // MARK: File
+    
+    func testGetFileURLWithSpecifiedFilenameAndExtension() {
         
         let filename = "test"
         let fileExtension = "txt"
-        let document = Directory.document(mask: .userDomainMask)
+        let document = Directory.document(domainMask: .userDomainMask)
         
-        do {
-            
-            let fileURL = try URL(filename: filename, withExtension: fileExtension, in: document)
-            
-            let expectedFilePath = document.path + "/\(filename).\(fileExtension)"
-            
-            XCTAssertNotNil(fileURL.path, "The result path should no be nil.")
+        let fileURL = URL.fileURL(filename: filename, withExtension: fileExtension, in: document)
         
-            XCTAssertEqual(fileURL.path!, expectedFilePath, "The result doesn't match.")
-            
-        }
-        catch {
-            
-            XCTAssertNil(error, "Should not throw a error.")
-            
-        }
-        
+        let expectedFilePath = document.path + "/\(filename).\(fileExtension)"
+    
+        XCTAssertEqual(fileURL.path, expectedFilePath, "The file urls doesn't match.")
+          
     }
     
 }

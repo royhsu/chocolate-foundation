@@ -1,5 +1,5 @@
 //
-//  URL+Extensions.swift
+//  URL+File.swift
 //  CHFoundation
 //
 //  Created by 許郁棋 on 2016/6/27.
@@ -7,6 +7,9 @@
 //
 
 import Foundation
+
+
+// MARK: - File
 
 public extension URL {
     
@@ -19,27 +22,22 @@ public extension URL {
      
      - Parameter extension: The file extension.
      
-     - Parameter directory: The directory.
+     - Parameter directory: The destination directory.
      
-     - returns: The specific file path in document directory.
+     - returns: The file url.
      
      - Important: If you need to get the file path from the returned URL, please access self.path instead of self.absoluteString.
     */
     // Reference: http://stackoverflow.com/questions/32716895/error-the-file-doesnt-exist-when-calling-writetofile-on-imagedata
     
-    init(filename: String, withExtension `extension`: String, `in` directory: Directory) throws {
-        
-        do {
-            
-            let filePath = try directory.path
-                .appendingPathComponent(filename)
-                .appendingPathExtension(`extension`)
-            
-            self.init(fileURLWithPath: filePath, isDirectory: false)
-            
-        }
-        catch { throw error }
-        
+    static func fileURL(filename: String, withExtension `extension`: String, `in` directory: Directory) -> URL {
+    
+        return
+            directory
+            .url
+            .appendingPathComponent(filename)
+            .appendingPathExtension(`extension`)
+    
     }
     
 }
