@@ -9,4 +9,7 @@ Pod::Spec.new do |spec|
   spec.source_files     = 'Source/*.swift'
 
   spec.ios.deployment_target = '8.0'
+
+  spec.dependency 'PromiseKit', '4.0.1'
+
 end
