@@ -13,17 +13,17 @@
 		B01B3DC31D324D6C007C1212 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DC21D324D6C007C1212 /* Identifiable.swift */; };
 		B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466071D2B4ECF004CB0E9 /* WebService.swift */; };
 		B044660A1D2B4EEA004CB0E9 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */; };
-		B0956B061D2A0F14000BC8D0 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */; };
+		B0956B061D2A0F14000BC8D0 /* Int+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B051D2A0F14000BC8D0 /* Int+RandomNumber.swift */; };
 		B0956B111D2A3911000BC8D0 /* IntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B101D2A3911000BC8D0 /* IntTests.swift */; };
 		B0971D441D28112D005BBEE8 /* CHFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B0971D431D28112D005BBEE8 /* CHFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0971D4F1D281148005BBEE8 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D4C1D281148005BBEE8 /* Directory.swift */; };
-		B0971D501D281148005BBEE8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D4D1D281148005BBEE8 /* String+Extensions.swift */; };
-		B0971D511D281148005BBEE8 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D4E1D281148005BBEE8 /* URL+Extensions.swift */; };
+		B0971D501D281148005BBEE8 /* String+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D4D1D281148005BBEE8 /* String+JSON.swift */; };
+		B0971D511D281148005BBEE8 /* URL+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D4E1D281148005BBEE8 /* URL+File.swift */; };
 		B0971D5B1D281211005BBEE8 /* CHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0971D401D28112D005BBEE8 /* CHFoundation.framework */; };
 		B0971D651D281251005BBEE8 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D631D281251005BBEE8 /* StringTests.swift */; };
 		B0971D661D281251005BBEE8 /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0971D641D281251005BBEE8 /* URLTests.swift */; };
 		B0F919A01D864E2E0075B956 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F9199F1D864E2E0075B956 /* MockURLSession.swift */; };
-		B0F919A41D864F2B0075B956 /* CAAnimationHandler..swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F919A31D864F2B0075B956 /* CAAnimationHandler..swift */; };
+		B0F919A41D864F2B0075B956 /* CAAnimation+Handlers..swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F919A31D864F2B0075B956 /* CAAnimation+Handlers..swift */; };
 		CEA6B7595467177BE5704F4D /* Pods_CHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D2335E96674A01C1B3E562 /* Pods_CHFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,20 +48,20 @@
 		B01B3DC21D324D6C007C1212 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		B04466071D2B4ECF004CB0E9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
-		B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		B0956B051D2A0F14000BC8D0 /* Int+RandomNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+RandomNumber.swift"; sourceTree = "<group>"; };
 		B0956B101D2A3911000BC8D0 /* IntTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntTests.swift; sourceTree = "<group>"; };
 		B0971D401D28112D005BBEE8 /* CHFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0971D431D28112D005BBEE8 /* CHFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHFoundation.h; sourceTree = "<group>"; };
 		B0971D451D28112D005BBEE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0971D4C1D281148005BBEE8 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
-		B0971D4D1D281148005BBEE8 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		B0971D4E1D281148005BBEE8 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		B0971D4D1D281148005BBEE8 /* String+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+JSON.swift"; sourceTree = "<group>"; };
+		B0971D4E1D281148005BBEE8 /* URL+File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+File.swift"; sourceTree = "<group>"; };
 		B0971D561D281211005BBEE8 /* CHFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0971D5A1D281211005BBEE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0971D631D281251005BBEE8 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		B0971D641D281251005BBEE8 /* URLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
 		B0F9199F1D864E2E0075B956 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
-		B0F919A31D864F2B0075B956 /* CAAnimationHandler..swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAAnimationHandler..swift; sourceTree = "<group>"; };
+		B0F919A31D864F2B0075B956 /* CAAnimation+Handlers..swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAAnimation+Handlers..swift"; sourceTree = "<group>"; };
 		FDAAEBAC62050CCC7D9C5DA0 /* Pods-CHFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHFoundation/Pods-CHFoundation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,12 +131,12 @@
 				B0F9199E1D864E2E0075B956 /* Mock */,
 				B01B3DC21D324D6C007C1212 /* Identifiable.swift */,
 				B0971D4C1D281148005BBEE8 /* Directory.swift */,
-				B0971D4D1D281148005BBEE8 /* String+Extensions.swift */,
-				B0971D4E1D281148005BBEE8 /* URL+Extensions.swift */,
-				B0956B051D2A0F14000BC8D0 /* Int+Extensions.swift */,
+				B0971D4D1D281148005BBEE8 /* String+JSON.swift */,
+				B0971D4E1D281148005BBEE8 /* URL+File.swift */,
+				B0956B051D2A0F14000BC8D0 /* Int+RandomNumber.swift */,
 				B04466071D2B4ECF004CB0E9 /* WebService.swift */,
 				B01B3DBE1D3240DB007C1212 /* CoreDataStack.swift */,
-				B0F919A31D864F2B0075B956 /* CAAnimationHandler..swift */,
+				B0F919A31D864F2B0075B956 /* CAAnimation+Handlers..swift */,
 			);
 			name = Source;
 			path = ../Source;
@@ -373,10 +373,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0F919A01D864E2E0075B956 /* MockURLSession.swift in Sources */,
-				B0971D501D281148005BBEE8 /* String+Extensions.swift in Sources */,
-				B0956B061D2A0F14000BC8D0 /* Int+Extensions.swift in Sources */,
-				B0971D511D281148005BBEE8 /* URL+Extensions.swift in Sources */,
-				B0F919A41D864F2B0075B956 /* CAAnimationHandler..swift in Sources */,
+				B0971D501D281148005BBEE8 /* String+JSON.swift in Sources */,
+				B0956B061D2A0F14000BC8D0 /* Int+RandomNumber.swift in Sources */,
+				B0971D511D281148005BBEE8 /* URL+File.swift in Sources */,
+				B0F919A41D864F2B0075B956 /* CAAnimation+Handlers..swift in Sources */,
 				B01B3DC31D324D6C007C1212 /* Identifiable.swift in Sources */,
 				B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */,
 				B0971D4F1D281148005BBEE8 /* Directory.swift in Sources */,

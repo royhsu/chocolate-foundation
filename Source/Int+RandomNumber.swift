@@ -1,5 +1,5 @@
 //
-//  Int+Extensions.swift
+//  Int+RandomNumber.swift
 //  CHFoundation
 //
 //  Created by 許郁棋 on 2016/7/4.

@@ -1,5 +1,5 @@
 //
-//  URL+Extensions.swift
+//  URL+File.swift
 //  CHFoundation
 //
 //  Created by 許郁棋 on 2016/6/27.
