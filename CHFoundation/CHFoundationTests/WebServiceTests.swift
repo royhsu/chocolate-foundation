@@ -65,7 +65,8 @@ class WebServiceTests: XCTestCase {
         
         webService!.urlSession = mockSession
         
-        let _ = webService!
+        let _ =
+            webService!
             .request()
             .then { user -> Void in
                 

@@ -15,6 +15,8 @@ public struct WebService<Model> {
     
     public typealias ModelParser = (Any) throws -> Model
     
+    // Todo: limit GET URLRequest
+    
     
     // MARK: Property
     
