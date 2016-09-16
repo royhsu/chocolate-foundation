@@ -13,6 +13,7 @@
 		B01B3DC31D324D6C007C1212 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DC21D324D6C007C1212 /* Identifiable.swift */; };
 		B04466081D2B4ECF004CB0E9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466071D2B4ECF004CB0E9 /* WebService.swift */; };
 		B044660A1D2B4EEA004CB0E9 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */; };
+		B05C6FA01D8B95D200B32BB6 /* WebServiceGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05C6F9F1D8B95D200B32BB6 /* WebServiceGroupTests.swift */; };
 		B0956B061D2A0F14000BC8D0 /* Int+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B051D2A0F14000BC8D0 /* Int+RandomNumber.swift */; };
 		B0956B111D2A3911000BC8D0 /* IntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0956B101D2A3911000BC8D0 /* IntTests.swift */; };
 		B0971D441D28112D005BBEE8 /* CHFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = B0971D431D28112D005BBEE8 /* CHFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,6 +49,7 @@
 		B01B3DC21D324D6C007C1212 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		B04466071D2B4ECF004CB0E9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
+		B05C6F9F1D8B95D200B32BB6 /* WebServiceGroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceGroupTests.swift; sourceTree = "<group>"; };
 		B0956B051D2A0F14000BC8D0 /* Int+RandomNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+RandomNumber.swift"; sourceTree = "<group>"; };
 		B0956B101D2A3911000BC8D0 /* IntTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntTests.swift; sourceTree = "<group>"; };
 		B0971D401D28112D005BBEE8 /* CHFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 				B0971D641D281251005BBEE8 /* URLTests.swift */,
 				B0956B101D2A3911000BC8D0 /* IntTests.swift */,
 				B04466091D2B4EEA004CB0E9 /* WebServiceTests.swift */,
+				B05C6F9F1D8B95D200B32BB6 /* WebServiceGroupTests.swift */,
 				B01B3DC01D32435A007C1212 /* CoreDataStackTests.swift */,
 				B0971D5A1D281211005BBEE8 /* Info.plist */,
 			);
@@ -392,6 +395,7 @@
 				B01B3DC11D32435A007C1212 /* CoreDataStackTests.swift in Sources */,
 				B0971D651D281251005BBEE8 /* StringTests.swift in Sources */,
 				B044660A1D2B4EEA004CB0E9 /* WebServiceTests.swift in Sources */,
+				B05C6FA01D8B95D200B32BB6 /* WebServiceGroupTests.swift in Sources */,
 				B0971D661D281251005BBEE8 /* URLTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
