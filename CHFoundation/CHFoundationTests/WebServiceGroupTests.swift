@@ -40,7 +40,7 @@ class WebServiceGroupTests: XCTestCase {
         webService2.urlSession = mockSession2
         
         let webServiceGroup = WebServiceGroup(
-            services: [ webService1, webService2 ]
+            webServices: [ webService1, webService2 ]
         )
         
         let expectation = self.expectation(description: "Request data with web service group.")
