@@ -11,20 +11,6 @@ import XCTest
 
 class WebServiceGroupTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        
-        
-        
-    }
-    
-    override func tearDown() {
-        
-        
-        
-        super.tearDown()
-    }
-    
     func testRequesting() {
         
         let url1 = URL(string: "https://example.com")!
