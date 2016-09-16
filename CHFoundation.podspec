@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = 'CHFoundation'
-  spec.version          = '0.4'
+  spec.version          = '0.4.1'
   spec.license          = 'MIT'
   spec.homepage         = 'https://github.com/royhsu/chocolate-foundation'
   spec.authors          = { 'Tiny World' => 'roy.hsu@tinyworld.cc' }
