@@ -14,12 +14,10 @@ class CoreDataStackTests: XCTestCase {
     
     func testInitInDirectoy() {
         
-        let filename = "Test"
         let document = Directory.document(domainMask: .userDomainMask)
-        let storeURL = URL.fileURL(filename: filename, withExtension: "sqlite", in: document)
+        let storeURL = URL.fileURL(filename: "Test", withExtension: "sqlite", in: document)
         
         let stack = try? CoreDataStack(
-            name: filename,
             model: NSManagedObjectModel(),
             options: nil,
             storeType: .local(storeURL: storeURL)
@@ -31,9 +29,7 @@ class CoreDataStackTests: XCTestCase {
     
     func testInitInMemory() {
         
-        let name = "Test"
         let stack = try? CoreDataStack(
-            name: name,
             model: NSManagedObjectModel(),
             options: nil,
             storeType: .memory

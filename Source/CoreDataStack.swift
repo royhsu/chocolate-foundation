@@ -57,26 +57,20 @@ public class CoreDataStack {
         self.storeCoordinator = storeCoordinator
         self.storeType = storeType
         
-        let addPersistentStore = {
+        do {
             
-            do {
+            switch storeType {
+            case .local(let storeURL):
                 
-                switch storeType {
-                case .local(let storeURL):
-                    
-                    try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
-                    
-                case .memory:
-                    
-                    try storeCoordinator.addPersistentStore(ofType: NSInMemoryStoreType, configurationName: nil, at: nil, options: options)
-                }
+                try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
                 
+            case .memory:
+                
+                try storeCoordinator.addPersistentStore(ofType: NSInMemoryStoreType, configurationName: nil, at: nil, options: options)
             }
-            catch { throw error }
             
-        } as! @convention(block) () -> Void
-        
-        DispatchQueue.global(qos: .background).async(execute: addPersistentStore)
+        }
+        catch { throw error }
         
     }
     

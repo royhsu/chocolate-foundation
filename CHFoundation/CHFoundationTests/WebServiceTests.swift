@@ -63,13 +63,20 @@ class WebServiceTests: XCTestCase {
         let mockSession = MockURLSession()
         mockSession.data = mockUserData
         
+        webService!.urlSession = mockSession
+        
         let _ = webService!
-            .request(with: mockSession)
+            .request()
             .then { user -> Void in
                 
                 let expectedUser = User(name: "Roy")
                 
                 XCTAssertEqual(user.name, expectedUser.name)
+                
+            }
+            .catch { error in
+                
+                XCTAssert(false, "Should not have an error. \(error)")
                 
             }
             .always { expectation.fulfill() }
