@@ -7,11 +7,12 @@
 //
 
 import CoreData
+import PromiseKit
 
 public class CoreDataStack {
     
     public enum StoreType {
-        case local(storeURL: URL)
+        case local(URL)
         case memory
     }
     
@@ -24,8 +25,8 @@ public class CoreDataStack {
     /// The persistent store coordinator shared by view context and writer context.
     public let storeCoordinator: NSPersistentStoreCoordinator
     
-    /// The store type for persistent store coordinator.
-    public let storeType: StoreType
+    /// Note: Temporarily fix the issue (error code: 134080) when adding persistent store multiple times.
+    public private(set) var isStoreLoaded: Bool = false
     
     
     // MARK: Init
@@ -44,9 +45,8 @@ public class CoreDataStack {
      - Returns: A core data stack instance.
      
      - Note: It's recommended to always create a stack on the main thread. http://stackoverflow.com/questions/13333289/core-data-timeout-adding-persistent-store-on-application-launch
-    */
-    
-    public init(model: NSManagedObjectModel, options: [AnyHashable: Any]? = nil, storeType: StoreType) throws {
+     */
+    public init(model: NSManagedObjectModel) {
         
         let storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         
@@ -55,27 +55,67 @@ public class CoreDataStack {
         
         self.viewContext = viewContext
         self.storeCoordinator = storeCoordinator
-        self.storeType = storeType
-        
-        do {
-            
-            switch storeType {
-            case .local(let storeURL):
-                
-                try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
-                
-            case .memory:
-                
-                try storeCoordinator.addPersistentStore(ofType: NSInMemoryStoreType, configurationName: nil, at: nil, options: options)
-            }
-            
-        }
-        catch { throw error }
         
     }
     
     
-    // Todo: background add persistent store
+    /**
+     The initializer for creating a stack instance.
+     
+     - Author: Roy Hsu.
+     
+     - Parameter type: The persistent store coordinator store type.
+     
+     - Parameter options: The options for persistent store coordinator.
+     
+     - Returns: A promise with stack self.
+     
+     */
+    public func loadStore(type: StoreType, options: [AnyHashable: Any]? = nil) -> Promise<CoreDataStack> {
+        
+        return Promise { fulfill, reject in
+            
+            if isStoreLoaded {
+                
+                fulfill(self)
+                
+                return
+                
+            }
+            
+            DispatchQueue.global(qos: .background).async {
+                
+                switch type {
+                case .local(let storeURL):
+                    
+                    do {
+                        
+                        try self.storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
+                        
+                        self.isStoreLoaded = true
+                        fulfill(self)
+                        
+                    }
+                    catch { reject(error) }
+                    
+                case .memory:
+                    
+                    do {
+                        
+                        try self.storeCoordinator.addPersistentStore(ofType: NSInMemoryStoreType, configurationName: nil, at: nil, options: options)
+                        
+                        self.isStoreLoaded = true
+                        fulfill(self)
+                        
+                    }
+                    catch { reject(error) }
+                }
+                
+            }
+            
+        }
+        
+    }
     
 }
 
@@ -85,12 +125,30 @@ public class CoreDataStack {
 public extension CoreDataStack {
     
     /// A convenience method to create a new background context that targets its parent to view context.
-    func createBackgroundContext() -> NSManagedObjectContext {
+    func newBackgroundContext() -> NSManagedObjectContext {
         
         let backgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         backgroundContext.parent = viewContext
         
         return backgroundContext
+        
+    }
+    
+    /// A convenience method to peform a task in background.
+    func performBackgroundTask(_ block: @escaping (NSManagedObjectContext) -> Void) -> Promise<NSManagedObjectContext> {
+        
+        return Promise { fulfill, _ in
+            
+            let backgroundContext = self.newBackgroundContext()
+            
+            backgroundContext.perform {
+                
+                block(backgroundContext)
+                fulfill(backgroundContext)
+                
+            }
+            
+        }
         
     }
     

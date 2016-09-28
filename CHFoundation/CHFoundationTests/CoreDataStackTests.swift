@@ -12,30 +12,65 @@ import XCTest
 
 class CoreDataStackTests: XCTestCase {
     
-    func testInitInDirectoy() {
+    var stack: CoreDataStack?
+    
+    override func setUp() {
+        super.setUp()
+        
+        stack = CoreDataStack(model: NSManagedObjectModel())
+        
+    }
+    
+    override func tearDown() {
+        
+        stack = nil
+        
+        super.tearDown()
+    }
+    
+    
+    func testLoadStoreInLocal() {
+        
+        let expectation = self.expectation(description: "Load store in local.")
         
         let document = Directory.document(domainMask: .userDomainMask)
         let storeURL = URL.fileURL(filename: "Test", withExtension: "sqlite", in: document)
         
-        let stack = try? CoreDataStack(
-            model: NSManagedObjectModel(),
-            options: nil,
-            storeType: .local(storeURL: storeURL)
-        )
+        let _ =
+        stack!
+            .loadStore(type: .local(storeURL))
+            .then { stack in
+                
+                /// Test for error code 134080: Can't add the same store twice.
+                return stack.loadStore(type: .local(storeURL))
+            
+            }
+            .catch { error in
+                
+                XCTAssertNil(error, "Can't load store in local. \(error.localizedDescription)")
+                
+            }
+            .always { expectation.fulfill() }
         
-        XCTAssertNotNil(stack, "Cannot initialize stack.")
+        waitForExpectations(timeout: 10.0, handler: nil)
         
     }
     
     func testInitInMemory() {
         
-        let stack = try? CoreDataStack(
-            model: NSManagedObjectModel(),
-            options: nil,
-            storeType: .memory
-        )
+        let expectation = self.expectation(description: "Load store in memory.")
         
-        XCTAssertNotNil(stack, "Cannot initialize stack.")
+        let _ =
+        stack!
+            .loadStore(type: .memory)
+            .catch { error in
+                
+                XCTAssertNil(error, "Can't load store in memory. \(error.localizedDescription)")
+                
+            }
+            .always { expectation.fulfill() }
+        
+        waitForExpectations(timeout: 10.0, handler: nil)
         
     }
     
