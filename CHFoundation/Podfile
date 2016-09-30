@@ -4,11 +4,11 @@ platform :ios, "8.0"
 use_frameworks!
 
 target 'CHFoundation' do
-	pod 'PromiseKit', '4.0.1'
+	pod 'PromiseKit', '4.0.3'
 end
 
 target 'CHFoundationTests' do
-	pod 'PromiseKit', '4.0.1'
+	pod 'PromiseKit', '4.0.3'
 end
 
 post_install do |installer|
