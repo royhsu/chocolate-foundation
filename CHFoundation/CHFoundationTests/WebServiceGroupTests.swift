@@ -63,12 +63,12 @@ class WebServiceGroupTests: XCTestCase {
             }
             .catch { error in
                 
-                XCTAssert(false, "Should not have an error. \(error)")
+                XCTAssertNil(error, "Should not have an error. \(error.localizedDescription)")
             
             }
             .always { expectation.fulfill() }
         
-        waitForExpectations(timeout: 5.0, handler: nil)
+        waitForExpectations(timeout: 10.0, handler: nil)
 
     }
     
