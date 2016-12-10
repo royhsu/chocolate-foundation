@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = 'CHFoundation'
-  spec.version          = '0.4.5'
+  spec.version          = '0.4.6'
   spec.license          = 'MIT'
   spec.homepage         = 'https://github.com/royhsu/chocolate-foundation'
   spec.authors          = { 'Tiny World' => 'roy.hsu@tinyworld.cc' }
@@ -10,6 +10,6 @@ Pod::Spec.new do |spec|
 
   spec.ios.deployment_target = '8.0'
 
-  spec.dependency 'PromiseKit', '4.0.3'
+  spec.dependency 'PromiseKit', '4.1.0'
 
 end
