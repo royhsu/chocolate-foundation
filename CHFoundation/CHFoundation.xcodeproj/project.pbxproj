@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		72F44F74CAAA59048575470D /* Pods_CHFoundationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B084E714E387B2DCD857CC0 /* Pods_CHFoundationTests.framework */; };
+		B01350741E06250800B1C7B4 /* Date+ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01350731E06250800B1C7B4 /* Date+ISO8601.swift */; };
+		B01350761E06259400B1C7B4 /* String+ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01350751E06259400B1C7B4 /* String+ISO8601.swift */; };
 		B01B3DBF1D3240DB007C1212 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DBE1D3240DB007C1212 /* CoreDataStack.swift */; };
 		B01B3DC11D32435A007C1212 /* CoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DC01D32435A007C1212 /* CoreDataStackTests.swift */; };
 		B01B3DC31D324D6C007C1212 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B3DC21D324D6C007C1212 /* Identifiable.swift */; };
@@ -45,6 +47,8 @@
 		8B084E714E387B2DCD857CC0 /* Pods_CHFoundationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CHFoundationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F1C8307CE244947CA2105E /* Pods-CHFoundationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHFoundationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHFoundationTests/Pods-CHFoundationTests.release.xcconfig"; sourceTree = "<group>"; };
 		A95081B8A028FE8994365B04 /* Pods-CHFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CHFoundationTests/Pods-CHFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B01350731E06250800B1C7B4 /* Date+ISO8601.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+ISO8601.swift"; sourceTree = "<group>"; };
+		B01350751E06259400B1C7B4 /* String+ISO8601.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ISO8601.swift"; sourceTree = "<group>"; };
 		B01B3DBE1D3240DB007C1212 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B01B3DC01D32435A007C1212 /* CoreDataStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackTests.swift; sourceTree = "<group>"; };
 		B01B3DC21D324D6C007C1212 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				B05C6FA11D8B976A00B32BB6 /* WebServiceGroup.swift */,
 				B01B3DBE1D3240DB007C1212 /* CoreDataStack.swift */,
 				B0F919A31D864F2B0075B956 /* CAAnimation+Handlers..swift */,
+				B01350731E06250800B1C7B4 /* Date+ISO8601.swift */,
+				B01350751E06259400B1C7B4 /* String+ISO8601.swift */,
 			);
 			name = Source;
 			path = ../Source;
@@ -371,7 +377,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0971D501D281148005BBEE8 /* String+JSON.swift in Sources */,
+				B01350741E06250800B1C7B4 /* Date+ISO8601.swift in Sources */,
 				B0956B061D2A0F14000BC8D0 /* Int+RandomNumber.swift in Sources */,
+				B01350761E06259400B1C7B4 /* String+ISO8601.swift in Sources */,
 				B0971D511D281148005BBEE8 /* URL+File.swift in Sources */,
 				B0F919A41D864F2B0075B956 /* CAAnimation+Handlers..swift in Sources */,
 				B01B3DC31D324D6C007C1212 /* Identifiable.swift in Sources */,
